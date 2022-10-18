@@ -77,8 +77,8 @@ function Shop() {
                         <div className="row">
                             {Array(20).fill(null).map((item, index) =>
                                 <div className='col-6 col-lg-3 my-4' key={index}>
-                                    <ProductCard name='جارو برقی بوش مدل BGL8PRO5IR'
-                                        image='../../../images/products/2464056-removebg-preview 1.png' price='250000' offer='' id={index} />
+                                    <ProductCard name='جاروبرقی خانگی کارچر مدل T 15/1'
+                                        image='../../../images/products/file_660.jpg' price='250000' offer='' id={index} />
                                 </div>
                             )}
                         </div>
