@@ -1,0 +1,100 @@
+$fontsizes : ('10px' : 10,
+    '12px':12,
+    '14px':14,
+    '16px':16);
+
+@each $key,
+$font in $fontsizes {
+    .text-#{$font} {
+        font-size: calc(#{$font}rem * 0.1) !important
+    }
+}
+
+$border-radius : 1rem;
+$section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
+
+.text-gray {
+    color: $text-gray;
+}
+
+.content-box {
+    border-radius: $border-radius;
+    box-shadow: $section-boxShadow;
+}
+
+@include media-breakpoint-up(lg) {
+    .mt-150 {
+        margin-top: 15rem;
+    }
+}
+
+.text-primary {
+    color: $primary  !important
+}
+
+.text-success {
+    color: $success;
+}
+
+.box {
+    border-radius: $border-radius;
+    box-shadow: $section-boxShadow;
+}
+
+.border-b {
+    border-bottom: 1px solid #{$primary}30;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+//-------- Buttons ----
+.btn {
+    font-size: 1.4rem;
+    color: $white  !important;
+    background-color: $primary  !important;
+    border: 1px solid transparent !important;
+
+    &:hover {
+        color: $white  !important;
+        backdrop-filter: saturate(80%);
+        box-shadow: 0 5px 15px #{$primary}30;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: .6rem 0;
+        font-size: 1rem !important;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.btn-secondary {
+    transition: all .4s;
+    align-items: center;
+    border-radius: .8rem;
+    display: inline-flex;
+    padding: .8rem 1.6rem;
+    justify-content: center;
+    color: $primary  !important;
+    border: 1px solid $primary  !important;
+    background-color: transparent !important;
+
+    &:hover {
+        color: $white  !important;
+        background-color: $primary  !important;
+        box-shadow: 0 5px 15px #{$primary}20 !important;
+    }
+}
+
+.btn-disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}

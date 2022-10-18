@@ -1,0 +1,91 @@
+.shop {
+    .sort {
+        .icon {
+            padding: 1.2rem;
+            border-radius: .4rem;
+            background-color: #{$primary}15;
+        }
+
+        .opt {
+            cursor: pointer;
+            color: #8D8D8D;
+        }
+
+        .activesort {
+            color: #4D4D4D;
+        }
+
+    }
+
+    .filter {
+        color: #4D4D4D;
+        padding: 1.6rem;
+        border-radius: $border-radius;
+        box-shadow: $section-boxShadow;
+        border:1px solid #{$primary}20;
+
+        input {
+            outline: none;
+            padding: .5rem 1rem;
+            border: none;
+            border-bottom: 1px solid #B8B8B830;
+        }
+
+        @include media-breakpoint-up(lg) {
+            top: 90px;
+            position: sticky;
+        }
+    }
+}
+
+// -----------
+.paginate {
+    direction: ltr;
+
+    @include media-breakpoint-down(sm) {
+        max-width: 99vw;
+
+        .links a {
+            padding: .5rem .8rem;
+        }
+    }
+}
+
+.links {
+    margin: 0 1rem;
+
+    a {
+        font-size: 1.6rem;
+        padding: 1rem 1.5rem;
+        border-radius: .4rem;
+        border: 1px solid #20202020;
+    }
+}
+
+.next a,
+.prev a {
+    padding: 1rem;
+    box-shadow: 0 0 15px #{$primary}30;
+    border-radius: .4rem;
+}
+
+.paginate {
+    .active-page {
+        margin: 0 1rem;
+
+        a {
+            padding: 1rem 1.5rem;
+            color: $white  !important;
+            background-color: $primary;
+        }
+    }
+
+    a {
+        color: $text-gray;
+
+        &:hover {
+            color: #{$black};
+            border-color: #{$primary}90;
+        }
+    }
+}

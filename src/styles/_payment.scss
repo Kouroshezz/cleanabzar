@@ -1,0 +1,29 @@
+.payment {
+    .border-danger {
+        border-color: $danger;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input[type=number]::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    &-success {
+        h4 {
+            line-height: 3rem;
+        }
+
+        .order-code {
+            color: $success;
+            font-size: 2rem;
+            background-color: #{$success}20;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+footer {
+    h5 {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    p,
+    span {
+        font-size: 1.6rem;
+    }
+
+    ul {
+        list-style-type: circle;
+
+        li:marker {
+            color: $primary;
+        }
+    }
+
+    a {
+        color: $black;
+    }
+
+    @include media-breakpoint-down(sm) {
+        h5 {
+            font-size: 2rem;
+        }
+
+        .about {
+            opacity: .7;
+            font-size: 1.4rem;
+        }
+    }
+}

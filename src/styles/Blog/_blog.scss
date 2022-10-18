@@ -1,0 +1,94 @@
+.blog {
+    .main-card {
+
+        figure {
+            width: 100%;
+            height: 100%;
+            color: $white;
+            position: relative;
+            border-radius: 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                border-radius: 2rem;
+                @include transformCenter();
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 47.4%, rgba(0, 0, 0, 0.1) 61.98%, rgba(0, 0, 0, 0.8) 100%);
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 2rem;
+            }
+
+            .detail {
+                bottom: 2rem;
+                z-index: 1;
+                width: 100%;
+                position: absolute;
+            }
+
+        }
+
+        h5 {
+            @include LineClamp(2)
+        }
+
+
+    }
+
+    .slick-slide {
+        padding-inline-start: 1rem;
+    }
+
+    .slick-slider {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    // .slick-list {
+    //     padding: 2rem 0;
+    // }
+    @include media-breakpoint-up(lg) {
+        .slick-list {
+            min-height: 400px;
+        }
+    }
+}
+
+.single-post {
+    .title {
+        font-weight: 700;
+        font-size: 2.2rem;
+    }
+
+    .excert {
+        line-height: 3.6rem;
+    }
+
+    p {
+        line-height: 3rem !important;
+    }
+
+    .content-tilte {
+        display: flex;
+
+        &:before {
+            content: '';
+            width: .9rem;
+            height: 2.2rem;
+            display: block;
+            background-size: cover;
+            margin-inline-end: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('../../../public/images/Icons/triangle-post-before.svg');
+        }
+    }
+}

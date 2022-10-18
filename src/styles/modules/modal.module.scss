@@ -1,0 +1,38 @@
+.wrapper {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    position: fixed;
+    transition: all .5s;
+    backdrop-filter: blur(1px);
+    background-color: #10101050;
+}
+
+.content {
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    padding: 2rem;
+    z-index: 99999;
+    max-height: 70vh;
+    position: fixed;
+    border-radius: 1rem;
+    background-color: #f9f9f9;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 600px) {
+        width: 90vw;
+        max-height: 70vh;
+    }
+
+    h2 {
+        font-size: 2.3rem;
+    }
+
+    .border-b {
+        border-bottom: 1px solid #10101010;
+    }
+}

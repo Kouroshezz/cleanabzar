@@ -1,0 +1,80 @@
+.form-wrapper {
+    color: $text-gray;
+
+
+    label {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+        margin-inline-start: .5rem;
+    }
+
+    input {
+        outline: none;
+        font-size: 1.4rem;
+        padding: .8rem 1rem;
+        border: 1px solid #D9E0E9;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+
+        &:placeholder {
+            opacity: .5;
+        }
+
+        &:focus {
+            color: $black;
+            border-color: #{$primary}80;
+        }
+    }
+}
+
+form {
+    p.text-danger {
+        font-size: 1.2rem;
+    }
+
+    input {
+        outline: none !important;
+        border-radius: $border-radius;
+        border: 1px solid $text-gray;
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+
+    textarea {
+        outline: none;
+        padding: 1rem;
+        border: 1px solid #{$text-gray}30 !important;
+        border-radius: $border-radius  !important;
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+
+}
+
+.form {
+    &-discount {
+        input {
+            border: none;
+            outline: none;
+            padding: 1rem;
+            border-radius: 0 .4rem .4rem 0;
+            background-color: #F4F4F4;
+
+            &::placeholder {
+                color: #979797;
+            }
+        }
+
+        button {
+            border: none;
+            color: $primary;
+            border-radius: .4rem 0 0 .4rem;
+            background-color: #{$primary}20;
+        }
+    }
+
+    &-payment {}
+}

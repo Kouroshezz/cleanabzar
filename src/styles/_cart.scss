@@ -1,0 +1,227 @@
+.cart {
+
+    //============ STEPS
+    &-steps-wrapper {
+        display: flex;
+        padding: 1rem auto 2rem auto;
+        border-radius: $border-radius;
+        box-shadow: $section-boxShadow;
+    }
+
+    &-steps {
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .icon-wrapper {
+            max-width: 5rem;
+            color: #9C9C9C;
+            border-radius: 50%;
+            background-color: #F5F7F8;
+        }
+
+        .step {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+
+            div {
+                &:first-child {
+                    span {
+                        top: 100%;
+                        color: #9C9C9C;
+                        margin-top: .5rem;
+                        position: absolute;
+                        white-space: nowrap;
+                    }
+                }
+
+                &:last-child {
+                    span {
+                        transform: translateX(1rem);
+
+                        @include media-breakpoint-down(sm) {
+                            transform: translateX(3rem);
+                        }
+                    }
+                }
+            }
+
+            .line {
+                flex-grow: 1;
+                height: .8rem;
+                background-color: #F5F7F8;
+            }
+
+            &:not(:last-child) {
+                flex-grow: 1;
+            }
+        }
+
+        //--active steps
+
+        .avtive {
+            &-step {
+                color: $white  !important;
+                background-color: $primary  !important;
+            }
+
+            &-line {
+                background-image: linear-gradient(270deg, #018895 0%, #F6AF0E 43.23%, #018895 100%) !important;
+            }
+        }
+    }
+
+    //===================
+
+    table {
+        thead {
+            background-color: #FAFAFA;
+
+            th {
+                padding: 0 1rem;
+
+                &:not(:first-child) {
+                    width: 100% !important;
+                    padding: 0 2rem !important;
+                    text-align: center !important;
+                }
+
+                &:not(:last-child) {
+                    border-left: 1px solid #E2E2E2;
+                }
+
+                &:last-child {
+                    flex-shrink: 2;
+                }
+            }
+
+        }
+    }
+
+    //--- tbody
+    tbody {
+        tr {
+            &:nth-child(2n) {
+                background-color: #FAFAFA;
+            }
+
+            td {
+                color: #3D3D3D;
+                font-size: 1.6rem;
+                text-align: center;
+
+                &:first-child {
+                    width: 4%;
+                }
+
+                &.price {
+                    width: 30%;
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                }
+
+                &.title {
+                    width: 40%;
+                }
+
+                &.quantity {
+                    width: 5%;
+                }
+
+                img {
+                    width: 10rem;
+                }
+            }
+        }
+    }
+
+    .quantity-btn {
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: #{$black}90;
+        padding: .5rem 1rem;
+        border-radius: .4rem;
+        background-color: #{$primary}15;
+    }
+
+    .itemsHeader {
+        padding: 1rem;
+        list-style-type: none;
+        background-color: #FAFAFA;
+
+        &>div:not(:first-child) {
+            width: 100% !important;
+            padding: 0 2rem !important;
+            text-align: center !important;
+        }
+
+        li:not(:last-child) {
+            border-left: 1px solid #E2E2E2;
+        }
+
+    }
+
+    //---------
+    @include media-breakpoint-down(sm) {
+        .table-wrapper {
+            width: 150vw;
+            overflow-y: scroll;
+        }
+
+        table {
+            width: 150vw !important;
+        }
+
+        .last-step {
+            transform: translateX(4rem) !important;
+        }
+
+        .delivery {
+            font-size: 1.2rem !important;
+        }
+    }
+
+    //---------------- receipt
+    .receipt {
+        @include media-breakpoint-up(lg) {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 80px;
+        }
+
+        //p:first-child {
+        //    background-color: #FAFAFA;
+        //}
+    }
+
+    h2 {
+        font-weight: 600;
+    }
+
+    .items-sm {
+        img {
+            //height: 15rem;
+            //width: 15rem !important;
+            object-fit: cover;
+        }
+
+        h4 {
+            line-height: 2.4rem;
+        }
+    }
+
+}
+
+.title-bg {
+    background-color: #FAFAFA;
+}
+
+.seprator {
+    height: 1px;
+    margin: 0 1.6rem;
+    background-color: #F5F5F5;
+}

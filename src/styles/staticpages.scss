@@ -1,0 +1,59 @@
+//------ ABOUT US
+.aboutus {
+    p {
+        font-size: 1.6rem;
+        line-height: 4rem;
+    }
+}
+
+//====== Contact Us
+.contact-us {
+    .box {
+        border-radius: 2.5rem;
+        box-shadow: $section-boxShadow;
+    }
+
+    .supports {
+        border-bottom: 1px solid #{$gray}30;
+
+        span {
+            &:first-child {
+                color: $text-gray;
+            }
+
+            &:nth-child(2) {
+                color: #515765
+            }
+        }
+    }
+
+    form {
+        input {
+            height: 5rem;
+            padding: 1.6rem auto;
+        }
+
+        textarea {
+            height: 17.5rem;
+        }
+    }
+}
+
+//============= payment
+.payment {
+    form {
+        font-size: 1.2rem;
+
+        input {
+            padding: 1rem auto;
+        }
+
+        label {
+            color: #565656
+        }
+    }
+
+    label {
+        color: #565656;
+    }
+}

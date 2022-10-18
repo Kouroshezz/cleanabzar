@@ -1,0 +1,16 @@
+.review-card {
+    img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+    }
+
+    p {
+        color: $text-gray;
+    }
+
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0px 4px 30px rgba(181, 181, 181, 0.1),
+    0px 0px 10px 3px #FEF7F6;
+}

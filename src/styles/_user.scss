@@ -1,0 +1,139 @@
+.user {
+    &-nav {
+        @include media-breakpoint-up(lg) {
+            top: 90px;
+            position: sticky;
+            position: -webkit-sticky;
+        }
+
+        border:1px solid #{$primary}20;
+
+        .data {
+            p {
+                color: #{$black}80;
+            }
+
+            img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+            }
+        }
+
+        li {
+            &:hover {
+                color: $primary;
+            }
+
+            a {
+                color: $black;
+            }
+        }
+
+        .active {
+            span {
+                color: $primary  !important;
+            }
+
+            background-color: #{$primary}10 !important;
+        }
+    }
+
+    .content {
+        border:1px solid #{$primary}20;
+    }
+
+    //-----
+    .input-wrapper {
+        border-radius: .4rem;
+        border: 1px solid #D9E0E9;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+
+        &:focus-within {
+            border-color: #{$primary}30;
+        }
+
+        input {
+            border: none;
+            outline: none;
+        }
+    }
+
+    //------
+    .border-active {
+        border-color: #{$success}50 !important;
+    }
+
+    // -------------- orders
+    .border-b {
+        border-bottom:1.5px solid #{$primary}20;
+    }
+
+    .border-end {
+        border-left: 1px solid #{$black}20;
+    }
+
+    .divider {
+        height: 1px;
+        background-color: #{$black}10;
+    }
+
+    .react-tabs__tab-list {
+        li {
+            color: #{$black}80;
+        }
+    }
+
+    .react-tabs__tab--selected {
+        outline: none;
+        border-radius: .5rem .5rem 0 0;
+        background-color: #{$primary}20;
+    }
+
+    // --- order card
+    .order-box {
+        border: 1px solid #{$black}10;
+
+        @include media-breakpoint-down(sm) {
+            box-shadow: 0 10px 20px 5px #10101008;
+        }
+    }
+
+    .product-pix {
+        img {
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            margin: auto .5rem;
+        }
+    }
+
+    // ----
+    .order-detail {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        // background-color: #fafafa;
+        background-color: $white;
+
+        // transform: translateX(-1%);
+        // box-shadow:0 -10px 15px #{$black}10;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #{$primary}20;
+            border-radius: $border-radius ;
+        }
+    }
+
+    .item-card {
+        border-radius: 1rem;
+        box-shadow: 0 0 10px #10101010;
+        // border:1px solid #{$black}20
+    }
+}

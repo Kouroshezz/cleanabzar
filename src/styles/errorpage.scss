@@ -1,0 +1,10 @@
+.wrapper-404 {
+    height: 50vh;
+
+    @include media-breakpoint-up(lg) {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url('../../public/images/bg/error.svg');
+    }
+}

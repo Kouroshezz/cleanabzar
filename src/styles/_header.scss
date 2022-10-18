@@ -1,0 +1,245 @@
+header {
+
+
+    // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+
+    .icon {
+        border-radius: .5rem;
+        background-color: #01889505;
+    }
+
+    input {
+        background-color: transparent;
+    }
+
+    .mobile-nav {
+        animation: slideInLeft .5s forwards alternate ease-out;
+    }
+
+    .main-nav {
+        display: flex;
+
+        li {
+            position: relative;
+            color: $text-gray;
+            cursor: pointer;
+
+            &:hover {
+                .submenu {
+                    display: block;
+                }
+
+                a {
+                    border-bottom: 2px solid $primary;
+                }
+
+                color: $primary;
+            }
+        }
+
+        .link-active {
+            color: $primary;
+            border-bottom: 2px solid $primary;
+        }
+    }
+
+    .hide {
+        z-index: -5;
+        position: relative;
+        visibility: hidden;
+        transition: all .25s;
+        transform: translateY(-100%);
+    }
+
+    aside {
+        top: 0;
+        right: -100%;
+        width: 85vw;
+        height: 100vh;
+        z-index: 999999;
+        position: fixed;
+        background-color: #ffffff;
+        box-shadow: -10px 0 15px #10101010;
+    }
+
+    .show_mobile-nav {
+        animation: slideInRight .5s forwards alternate ease-out;
+    }
+
+    a {
+        font-size: 1.4rem !important;
+
+        &:hover {
+            color: #{$primary};
+        }
+    }
+
+    .btn {
+        white-space: nowrap;
+        font-size: 1.2rem !important;
+    }
+
+}
+
+.input_wrapper {
+    width: 90%;
+    background-color: $white;
+
+    @include media-breakpoint-up(lg) {
+        width: 40%;
+
+        input {
+            flex-grow: 1;
+        }
+    }
+
+    border-radius: .5rem;
+    border: 1px solid #{$black}20;
+
+    input {
+        border: none;
+        outline: none;
+    }
+
+    &:focus-within {
+        border-color: #{$primary}50;
+    }
+}
+
+.login-reg {
+    color: $text-gray;
+    padding: 1rem 2rem;
+    border-radius: .4rem;
+    border:1px solid #{$text-gray}10;
+}
+
+
+@keyframes slideInRight {
+    from {
+        right: -100%
+    }
+
+    to {
+        right: -.5rem
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: -100%;
+    }
+}
+
+// ----------- media breakpoint above lg
+@include media-breakpoint-up(lg) {
+    header {
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        position: fixed;
+        margin-bottom: 5rem;
+        background-color: $white;
+        border-bottom: 1px solid #{$text-gray}30;
+
+        // ------
+        &:after {
+            left: 0;
+            content: '';
+            z-index: -1;
+            width: 100vw;
+            height: 90vh;
+            display: none;
+            position: fixed;
+            top: calc(0% + 130px);
+            backdrop-filter: blur(2px);
+            background-color: #10101060;
+        }
+
+        &.active-after {
+            &:after {
+                display: block !important;
+            }
+        }
+
+        .submenu {
+            right: 0;
+            top: 103%;
+            z-index: 99;
+            display: none;
+            margin: 0 auto;
+            min-width: 20vw;
+            overflow: hidden;
+            min-height: 30vh;
+            width: max-content;
+            position: absolute;
+            padding: 1rem 2rem;
+            background-color: #ffffff;
+            border-radius: 0 0 1rem 1rem;
+
+            li:hover {
+                background-color: #{$primary}10;
+            }
+        }
+
+        .submenu2 {
+            top: 0%;
+            right: 50%;
+            width: 100%;
+            z-index: 3;
+            height: 300px;
+            display: none;
+            padding: 0 1rem;
+            position: absolute;
+            background-color: $white;
+            transform: translateY(-20%);
+            border-right: 1px solid #10101010;
+
+            ul {
+                top: 20%;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+        }
+
+        .submenu li:hover .submenu2 {
+            display: block;
+        }
+    }
+}
+
+// -------- media brakpoint below sm 
+@include media-breakpoint-down(sm) {
+    .main-nav {
+
+        .submenu2 {
+            display: none;
+        }
+
+        .submenu {
+            display: none;
+
+            li:hover {
+                .submenu2 {
+                    display: flex;
+                }
+            }
+        }
+
+        &>li:hover {
+            background-color: #D9E0E910;
+
+            .submenu {
+                display: flex;
+
+                li:hover {
+                    background-color: #D9E0E920;
+                }
+            }
+        }
+    }
+}
