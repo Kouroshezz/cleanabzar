@@ -7,6 +7,7 @@ import { createSearchParams, Link, useLocation, useNavigate, useParams, useSearc
 import ProductCard from '../../Components/Products/productCard';
 import SortProducts from '../../Components/Products/sort';
 import Layout from '../../Components/Layout';
+import Filter from '../../Components/Products/filter';
 
 function Shop() {
 
@@ -58,6 +59,7 @@ function Shop() {
                         <div className="filter">
                             <h3 className='border-b pt-2 pb-4 mb-4 text-center'>فیلتر ها</h3>
                             <h5 className=''>محدوده قیمت</h5>
+                            <Filter />
                             <form onChange={(e) => ''}>
                                 <label htmlFor='price_from d-block'>از</label>
                                 <input type="number" className='w-100' placeholder='0 تومان' min={0} max={1000000} step={50000} />

@@ -75,7 +75,7 @@
 
         a {
             padding: 1rem 1.5rem;
-            color: $white  !important;
+            color: $white !important;
             background-color: $primary;
         }
     }
@@ -88,4 +88,28 @@
             border-color: #{$primary}90;
         }
     }
+}
+
+// -------- FILTER
+.noUi-target {
+    height: 10px !important;
+}
+
+.noUi-connect {
+    background: $primary !important;
+}
+
+.noUi-handle {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+
+    &:after,
+    &:before {
+        display: none;
+    }
+}
+
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+    left: -10px !important;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 // -------------- LIBRARY
 import { useForm } from 'react-hook-form';
 import { ArrowForward, Heart, ShoppingCart } from 'iconsax-react';
@@ -37,7 +37,7 @@ function SingleProduct() {
 
     //const [data, setData] = useState();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         const header = document.querySelector('header');
         const detailsBar = document.querySelector('.details');
@@ -46,7 +46,7 @@ function SingleProduct() {
 
         //---------- Scroll Actions
         window.scrollTo(0, 0);
-        const commentSecOffset = commentRef.current.offsetTop - 140;
+        const commentSecOffset = commentRef.current.offsetTop - 250;
         const actionBoxOffset = actionBoxRef.current.offsetTop;
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > actionBoxOffset && window.pageYOffset < commentSecOffset) {

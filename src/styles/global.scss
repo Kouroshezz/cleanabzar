@@ -38,6 +38,11 @@
 
 html {
     font-size: 10px;
+
+    @include media-breakpoint-up(lg) {
+        scroll-padding-top: 120px;
+    }
+
     // @include media-breakpoint-down(sm) {
     //     overflow-x: hidden;
     //     max-width: 99.99vw;
