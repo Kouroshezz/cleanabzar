@@ -46,7 +46,7 @@ function SingleProduct() {
 
         //---------- Scroll Actions
         window.scrollTo(0, 0);
-        const commentSecOffset = commentRef.current.offsetTop - 250;
+        const commentSecOffset = commentRef.current.offsetTop - 150;
         const actionBoxOffset = actionBoxRef.current.offsetTop;
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > actionBoxOffset && window.pageYOffset < commentSecOffset) {
