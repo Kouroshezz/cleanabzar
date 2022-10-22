@@ -9,10 +9,11 @@ import MobileDevice from './Context/index';
 
 function App() {
 
-  const [checkMobile, setCheckMobile] = useState(false)
+  const [checkMobile, setCheckMobile] = useState(false);
+  // window?.innerWidth < 600 ? setCheckMobile(true) : setCheckMobile(false);
 
   useEffect(() => {
-    window.innerWidth < 600 ? setCheckMobile(true) : setCheckMobile(false)
+    document.documentElement?.offsetWidth < 600 ? setCheckMobile(true) : setCheckMobile(false);
   }, [checkMobile])
 
   return (
