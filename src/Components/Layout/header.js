@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 // ------ library
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -15,6 +15,7 @@ function Header() {
     const headerbottom = useRef(null);
     const mobileSideMenu = useRef(null);
     const checkMobile = useContext(MobileDevice);
+    const [searchParam, setSearchParam] = useState('');
 
     function showSideMenu() {
         mobileSideMenu.current.classList.add('show_mobile-nav')
@@ -23,6 +24,15 @@ function Header() {
     function hideSideMenu() {
         mobileSideMenu.current.classList.remove('show_mobile-nav')
     }
+
+    let getsearchParam;
+    const search = useCallback((e) => {
+        clearTimeout(getsearchParam);
+        getsearchParam = setTimeout(() => {
+            let val = e.target.value;
+            val.trim().length > 4 && console.log(val.trim().replace(/\s/g, '%'))
+        }, 600)
+    }, [])
 
     // ---- menu items
     const menuItems = [
@@ -54,7 +64,7 @@ function Header() {
         window.addEventListener('scroll', () => {
             if (window.scrollY < 200) {
                 header.current.style.cssText = 'max-height:auto';
-                headerbottom.current.style.cssText = 'transition:all 250ms;';
+                headerbottom.current.style.cssText = 'transition:all 250ms';
                 headerbottom.current.classList.remove('hide');
             }
             if (window.scrollY > 200) {
@@ -65,7 +75,6 @@ function Header() {
 
         checkMobile && hideSideMenu();
         closeMegamenu();
-
     }, [pathname])
 
     return (
@@ -78,10 +87,16 @@ function Header() {
                             <Link to='/'>
                                 <img src='../../../LOGO.svg' />
                             </Link>
-                            <form className='ms-auto flex-grow-1'>
+                            <form className='ms-auto flex-grow-1 position-relative'>
                                 <div className='input_wrapper d-flex align-items-center me-5'>
                                     <span className='icon text-gray p-3'> <SearchNormal1 /></span>
-                                    <input type='search' placeholder='جستجو...' className='p-3' />
+                                    <input type='text' placeholder='جستجو...' className='p-3'
+                                        onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
+                                    {searchParam && <img className='loading' src='../../../images/Icons/loading.png' />}
+                                </div>
+                                {/* {searchParam.trim().length > 3 && */}
+                                <div className={`searchResult bg-white w-50 animate__animated ${searchParam ? 'animate__fadeInDown' : 'animate__fadeOutUp zIndex-n9'} animate__faster`}>
+
                                 </div>
                             </form>
                             <div className='me-auto'>
