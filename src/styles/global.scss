@@ -23,18 +23,6 @@
     src: url('../Assets/fonts/iranyekanwebregularfanum.woff') format('woff');
 }
 
-@font-face {
-    font-family: 'icomoon';
-    src: url('../Assets/fonts/icomoon.eot');
-    src: url('../Assets/fonts/icomoon.ttf') format("truetype");
-}
-
-.icon-logo_shape-f:before {
-    color: #fff;
-    content: "\e906";
-    font-family: 'icomoon';
-}
-
 
 html {
     font-size: 10px;

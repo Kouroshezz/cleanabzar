@@ -103,16 +103,11 @@
     // ------------ arrows wapper
     &:before {
         right: 1rem;
-        bottom: -34px;
-        // font-size: 60px;
-        // color: #ffffff;
-        // content: "\e906";
         content: "";
-        position: absolute;
         width: 330px;
         height: 70px;
-        // transform: rotate(180deg);
-        // font-family: 'icomoon' !important;
+        bottom: -34px;
+        position: absolute;
         background-image: url('../../../public/images/Icons/carousel-shape.svg');
 
         @include media-breakpoint-down(sm) {
