@@ -13,16 +13,16 @@ function ProductGallery() {
     // ------- Lightbox
     const [lightbox, setLightbox] = useState('');
 
-    const imgHeight = 416;
     const imgWidth = 376;
-    const lensHeight = 100;
     const lensWidth = 100;
+    const imgHeight = 416;
+    const lensHeight = 100;
     const previewLensHeight = 600;
 
     return (
         <div className="product-gallery p-2 p-lg-4">
-            {/* -- lightbox -- */}
-            {lightbox &&
+            {/* -------- */}
+            {/* {lightbox &&
                 <>
                     <Modal close={() => setLightbox('')}  >
                         <div className="d-flex justify-content-center" >
@@ -30,22 +30,14 @@ function ProductGallery() {
                                 zoomScale={1.5} src={`${lightbox}`} zoomSrc={`${lightbox}`} />
                         </div>
                     </Modal>
-                </>}
+                </>} */}
 
             {/* ------------- */}
             <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/2464056-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/112943678-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/2464056-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/112943678-removebg-preview 1.png' />
-                </figure>
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
             </Slider>
             <Slider asNavFor={nav1} ref={(slider2) => setNav2(slider2)} className='thumbnails' slidesToShow={4}
                 swipeToSlide={true} focusOnSelect={true} infinite={false} >

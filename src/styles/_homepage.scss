@@ -7,16 +7,16 @@
 
     &:before {
         content: '' !important;
-        background-image: url('../../public/images/Icons/Group-33.svg');
+        display: none !important;
     }
 }
 
 .landing .slick-prev {
-    right: 20px !important;
+    right: 30px !important;
 
     &:before {
         content: '' !important;
-        background-image: url('../../public/images/Icons/Group-34.svg');
+        display: none !important;
     }
 }
 

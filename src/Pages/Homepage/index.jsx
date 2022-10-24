@@ -14,6 +14,7 @@ import ReviewCard from '../../Components/Reviews/review-card';
 import CategoryBanner from '../../Components/Products/categoryBanner';
 import ProductCarousel from '../../Components/Products/productCarousel';
 import SectionsTitle from '../../Components/shared/sections-title';
+import { NextArrowhp, PrevArrowhp } from '../../Components/shared/Homeslider-arrows';
 
 
 function Homepage() {
@@ -37,7 +38,8 @@ function Homepage() {
                 <div className="row gap-y-5">
                     <div className="col-12 col-md-8 landing">
                         {/* ----------- SLIDER --------- */}
-                        <Slider {...settings} className='rounded-3 align-items-stretch'>
+                        <Slider {...settings} prevArrow={<PrevArrowhp />} nextArrow={<NextArrowhp />}
+                            className='rounded-3 align-items-stretch'>
                             <img src='../../images/banner/Frame 39.png' />
                             <img src='../../images/banner/Frame 39.png' />
                         </Slider>
@@ -87,7 +89,8 @@ function Homepage() {
             {/* ------- PRODUCT CATEGORY BANNER -------- */}
             <div className='container my-5 py-2'>
                 <div className='row'>
-                    <CategoryBanner bgcolor={'#FA6917'} title='تجهیزات رفاهی' ad={['خوشبو کننده هوا', 'دستگاه واکس زن برقی', 'سشوار و دست خشک کن']} image='../../../images/products/Group-17382.png' />
+                    <CategoryBanner bgcolor={'#FA6917'} title='تجهیزات رفاهی' ad={['خوشبو کننده هوا', 'دستگاه واکس زن برقی', 'سشوار و دست خشک کن']}
+                        image='../../../images/products/Group-17382.png' />
 
                 </div>
             </div>
@@ -204,3 +207,5 @@ function Homepage() {
 }
 
 export default React.memo(Homepage)
+
+

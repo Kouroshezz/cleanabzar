@@ -1,8 +1,8 @@
 .ProductCard {
     border-radius: .4rem;
+    box-shadow: $section-boxShadow;
     border: 1px solid rgba(1, 136, 149, 0.1);
     // filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.1));
-    box-shadow: $section-boxShadow;
 
     h5 {
         font-weight: 500;
@@ -102,14 +102,18 @@
 
     // ------------ arrows wapper
     &:before {
-        content: "\e906";
-        font-family: 'icomoon' !important;
-        color: #ffffff;
-        font-size: 60px;
-        position: absolute;
-        transform: rotate(180deg);
-        bottom: -48px;
         right: 1rem;
+        bottom: -34px;
+        // font-size: 60px;
+        // color: #ffffff;
+        // content: "\e906";
+        content: "";
+        position: absolute;
+        width: 330px;
+        height: 70px;
+        // transform: rotate(180deg);
+        // font-family: 'icomoon' !important;
+        background-image: url('../../../public/images/Icons/carousel-shape.svg');
 
         @include media-breakpoint-down(sm) {
             right: -3rem;
@@ -120,17 +124,17 @@
 
     // ------------------
     .slick-slider {
-        button {
-            top: 105%;
+        .slick-arrow {
+            top: 98%;
         }
 
         .slick-next {
-            right: -18% !important;
+            right: -15% !important;
             left: auto !important;
         }
 
         .slick-prev {
-            right: -23% !important;
+            right: -21% !important;
         }
 
         .slick-next,
@@ -139,7 +143,7 @@
             box-shadow: 0 0 15px #{$primary}30;
 
             &:before {
-                color: $primary;
+                display: none !important;
             }
         }
 

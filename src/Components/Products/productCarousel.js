@@ -8,12 +8,13 @@ import { renderer } from '../../Utils/countdown.helper';
 // Components 
 import ProductCard from './productCard';
 import { productCarousel } from '../../Pages/Homepage/data.helper';
+import { NextArrow, PrevArrow } from '../shared/carousel-arrows';
 
 function ProductCarousel({ title, subtitle, products, category, banner }) {
 
     return (
         <div className="container py-4">
-            <div className="row">
+            <div className="">
                 <div className='d-flex justify-content-between'>
                     <h3 className='me-lg-5'>{title}</h3>
                     <Link to={`/shop/${category}`}>مشاهده همه</Link>
@@ -40,7 +41,8 @@ function ProductCarousel({ title, subtitle, products, category, banner }) {
                     </div>
                     <div className='col-7 col-md-9'>
                         {/* <a className='d-none d-lg-block text-start'>مشاهده همه</a> */}
-                        <Slider {...productCarousel} customPaging={50} className='py-2'>
+                        <Slider {...productCarousel} centerMode={true} centerPadding='20px' rtl={true} nextArrow={<NextArrow />} prevArrow={<PrevArrow />}
+                            customPaging={50} className='py-2'>
                             {products.map((item, index) =>
                                 <ProductCard key={index} offer={item.offer} name={item.title} image={item.image} price={item.price} id={item.id} />)}
                         </Slider>

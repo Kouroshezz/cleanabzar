@@ -1,21 +1,22 @@
+import { current } from "@reduxjs/toolkit";
+import { NextArrow, PrevArrow } from ".";
+
 export const settings = {
-    dots: false,
-    // infinite: true,
     speed: 800,
+    dots: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <img src='../../images/Icons/Group-33.svg' alt='' />,
-    prevArrow: <img src='../../images/Icons/Group-34.svg' alt='' />
+    // infinite: true,
 }
 
 export const productCarousel = {
     dots: false,
+    autoplay: true,
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
     cssEase: "linear",
+    autoplaySpeed: 2000,
     responsive: [
         {
             breakpoint: 1400,
@@ -29,7 +30,7 @@ export const productCarousel = {
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                centerPadding: '10px',
+                // centerPadding: '15px',
             }
         },
         {
@@ -46,13 +47,10 @@ export const productCarousel = {
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 centerMode: true,
-                rtl: false,
-                centerPadding: '10px',
+                // centerPadding: '10px',
             }
         }
     ]
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />
 };
 
 export const whyUs = [
@@ -97,6 +95,8 @@ export const spProducts = {
         { title: 'کارواش خانگی k5 power', image: '../../images/products/کارواش-خانگی-K2-battery-set-removebg-preview 1.png', price: 899000, id: 6, offer: { stat: true, price: 295200, discount: 10 } },
     ]
 }
+// =================
+
 
 // ------------ HOMEPAGE BRANS CAROUSEL 
 export const brandsSliderSetting = {

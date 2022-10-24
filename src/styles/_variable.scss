@@ -17,6 +17,10 @@ $section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
     color: $text-gray;
 }
 
+.border-primary {
+    border-color: $primary  !important;
+}
+
 .content-box {
     border-radius: $border-radius;
     box-shadow: $section-boxShadow;
