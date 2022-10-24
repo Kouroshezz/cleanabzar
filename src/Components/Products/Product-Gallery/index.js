@@ -65,6 +65,7 @@ function ProductGallery() {
 export default React.memo(ProductGallery)
 
 
+
 const productGallery = {
     responsive: [
         {
