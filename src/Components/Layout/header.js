@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 // ------ library
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -59,7 +59,7 @@ function Header() {
     }
     // ------
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         window.addEventListener('scroll', () => {
             if (window.scrollY < 200) {
@@ -69,7 +69,7 @@ function Header() {
             }
             if (window.scrollY > 200) {
                 header.current.style.cssText = 'max-height:80px'
-                headerbottom.current.classList.add('hide');
+                headerbottom.current?.classList?.add('hide');
             }
         });
 
