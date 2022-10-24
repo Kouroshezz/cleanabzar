@@ -148,14 +148,14 @@ function Homepage() {
                     <div className="row">
                         <div className="brands">
                             <Slider {...brandsSliderSetting} className='py-5' direction='left'>
-                                <div><img src='../../../images/brands/lg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Samsung Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/lg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Samsung Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
                             </Slider>
                         </div>
                     </div>
