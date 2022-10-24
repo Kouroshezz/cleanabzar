@@ -103,10 +103,13 @@ export const brandsSliderSetting = {
     dots: false,
     arrows: false,
     infinite: true,
+    speed: 4000,
+    autoplaySpeed: 0,
+    centerMode: true,
+    autoplaySpeed: 0,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
     cssEase: "linear",
     responsive: [
         {
