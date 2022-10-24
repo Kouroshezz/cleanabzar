@@ -36,7 +36,7 @@ function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
 
     return (
         <>
-            <div className="sort d-none d-lg-flex align-items-center justify-content-center my-5 pb-4">
+            <div className="sort d-none d-lg-flex align-items-center justify-content-center my-5 pt-5">
                 <span className='icon ms-4'>
                     <Setting5 className='text-primary' />
                 </span>
