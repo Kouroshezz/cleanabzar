@@ -105,8 +105,8 @@
         right: 1rem;
         content: "";
         width: 330px;
-        height: 70px;
         bottom: -34px;
+        height: 70px;
         position: absolute;
         background-image: url('../../../public/images/Icons/carousel-shape.svg');
 
@@ -145,11 +145,11 @@
         @include media-breakpoint-down(sm) {
             .slick {
                 &-next {
-                    left: 120% !important;
+                    right: -10% !important;
                 }
 
                 &-prev {
-                    right: -55% !important;
+                    right: -40% !important;
                 }
             }
         }
