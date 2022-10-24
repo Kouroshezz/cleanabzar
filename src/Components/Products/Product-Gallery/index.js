@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import InnerImageZoom from 'react-inner-image-zoom';
 // ----
 import Modal from '../../Modal';
+import { NextArrow, PrevArrow } from '../../shared/carousel-arrows';
 
 function ProductGallery() {
 
@@ -33,7 +34,7 @@ function ProductGallery() {
                 </>} */}
 
             {/* ------------- */}
-            <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+            <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
@@ -62,3 +63,23 @@ function ProductGallery() {
 }
 
 export default React.memo(ProductGallery)
+
+
+const productGallery = {
+    responsive: [
+        {
+            breakpoint: 900,
+            settings: {
+                arrows: false,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: true,
+                NextArrow: <NextArrow />,
+                PrevArrow: <PrevArrow />
+            }
+        }
+    ]
+}
