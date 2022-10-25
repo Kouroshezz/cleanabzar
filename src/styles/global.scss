@@ -26,11 +26,6 @@
 
 html {
     font-size: 10px;
-
-    @include media-breakpoint-up(lg) {
-        scroll-padding-top: 130px;
-    }
-
     // @include media-breakpoint-down(sm) {
     //     overflow-x: hidden;
     //     max-width: 99.99vw;
@@ -46,6 +41,17 @@ body {
     @include media-breakpoint-down(sm) {
         overflow-x: hidden;
         max-width: 99.99vw;
+    }
+}
+
+
+@include media-breakpoint-up(lg) {
+    html {
+        scroll-padding-top: 130px;
+    }
+
+    .product_carousel .slick-initialized {
+        direction: rtl !important;
     }
 }
 
@@ -139,10 +145,9 @@ a {
     opacity: .6;
 }
 
-
-.product_carousel .slick-initialized {
-    direction: rtl !important;
-}
+// .product_carousel .slick-initialized {
+//     direction: rtl !important;
+// }
 
 .slick-arrow:before {
     display: none !important;

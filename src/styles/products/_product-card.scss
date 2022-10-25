@@ -112,7 +112,7 @@
 
         @include media-breakpoint-down(sm) {
             right: -3rem;
-            bottom: -33px;
+            bottom: -35px;
             font-size: 5rem;
         }
     }
@@ -124,12 +124,12 @@
         }
 
         .slick-next {
-            right: -15% !important;
+            right: -17% !important;
             left: auto !important;
         }
 
         .slick-prev {
-            right: -21% !important;
+            right: -22% !important;
         }
 
         .slick-next,
@@ -159,4 +159,8 @@
     .slick-track {
         padding-bottom: 3rem;
     }
+}
+
+.slick-slide.slick-current .single {
+    border-color: $primary  !important;
 }
