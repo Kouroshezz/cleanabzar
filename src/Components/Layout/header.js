@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, use
 
 // ------ library
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ArrowDown2, ArrowLeft2, ArrowRight2, Call, HambergerMenu, Profile, SearchNormal1, ShoppingCart, User } from 'iconsax-react';
+import { Add, ArrowDown2, ArrowLeft2, ArrowRight2, Call, HambergerMenu, Profile, SearchNormal1, ShoppingCart, User } from 'iconsax-react';
 // ------ ICONS
 import MobileDevice from '../../Context';
 import { type } from '@testing-library/user-event/dist/type';
@@ -90,13 +90,18 @@ function Header() {
                             <form className='ms-auto flex-grow-1 position-relative'>
                                 <div className='input_wrapper d-flex align-items-center me-5'>
                                     <span className='icon text-gray p-3'> <SearchNormal1 /></span>
-                                    <input type='text' placeholder='جستجو...' className='p-3'
-                                        onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
-                                    {searchParam && <img className='loading' src='../../../images/Icons/loading.png' />}
+                                    <input type='text' placeholder='جستجو...' value={searchParam} className='p-3'
+                                        tabIndex={1} onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
+                                    {searchParam && <div>
+                                        <img className='loading' src='../../../images/Icons/loading.png' />
+                                        <span className='mx-1 px-2 pointer' onClick={() => setSearchParam('')}>
+                                            <Add size='16' color='#018895' style={{ transform: 'rotate(45deg' }} />
+                                        </span>
+                                    </div>}
                                 </div>
                                 {/* {searchParam.trim().length > 3 && */}
-                                <div className={`searchResult bg-white w-50 animate__animated ${searchParam ? 'animate__fadeInDown' : 'animate__fadeOutUp zIndex-n9'} animate__faster`}>
-
+                                <div className={`searchResult bg-white w-50 animate__animated 
+                                ${searchParam ? 'animate__fadeInDown' : 'animate__fadeOutUp zIndex-n9'} animate__faster`}>
                                 </div>
                             </form>
                             <div className='me-auto'>
@@ -165,10 +170,22 @@ function Header() {
                             <div className="btn btn-secondary pointer text-16 p-2">ورود / ثبت نام</div>
                         </div>
                         <div className="d-flex justify-content-between align-items-center border-b pb-3 mb-5">
-                            <form className='flex-grow-1'>
-                                <div className='input_wrapper d-flex align-items-center'>
+                            <form className='ms-auto flex-grow-1 position-relative'>
+                                <div className='input_wrapper d-flex align-items-center me-5'>
                                     <span className='icon text-gray p-3'> <SearchNormal1 /></span>
-                                    <input type='search' placeholder='جستجو...' className='p-3 flex-grow-1' />
+                                    <input type='text' placeholder='جستجو...' className='p-3'
+                                        onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
+                                    {searchParam && <div className='d-flex'>
+                                        <img className='loading' src='../../../images/Icons/loading.png' />
+                                        <span className='mx-1 px-2 pointer' onClick={() => setSearchParam('')}>
+                                            <Add size='16' color='#018895' style={{ transform: 'rotate(45deg' }} />
+                                        </span>
+                                    </div>}
+                                </div>
+                                {/* {searchParam.trim().length > 3 && */}
+                                <div className={`searchResult bg-white w-100 animate__animated 
+                                ${searchParam ? 'animate__fadeInDown' : 'animate__fadeOutUp zIndex-n9'} animate__faster`}>
+
                                 </div>
                             </form>
                             <Link to='/cart' className="icon p-3 me-3 text-dark"><ShoppingCart /></Link>
