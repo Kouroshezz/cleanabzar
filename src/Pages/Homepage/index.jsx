@@ -80,26 +80,21 @@ function Homepage() {
                 </div>
             </div>
 
-            <div className='container-fluid mt-5 pt-3'>
-                <div className="" style={{ backgroundColor: '#ffeae3' }}>
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
-                        category={'vacum'} products={products} banner='../../../images/products/tstst.png' />
-                </div>
+            <div className='container-fluid mt-5 pt-3' style={{ backgroundColor: '#ffeae3' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
+                    category={'vacum'} products={products} banner='../../../images/products/tstst.png' />
             </div>
             {/* ------- PRODUCT CATEGORY BANNER -------- */}
             <div className='container my-5 py-2'>
                 <div className='row'>
                     <CategoryBanner bgcolor={'#FA6917'} title='تجهیزات رفاهی' ad={['خوشبو کننده هوا', 'دستگاه واکس زن برقی', 'سشوار و دست خشک کن']}
                         image='../../../images/products/Group-17382.png' />
-
                 </div>
             </div>
             {/* ------- PRODUCT CAROUSEL -------- */}
-            <div className='container-fluid my-5 py-3'>
-                <div className="" style={{ backgroundColor: '#D0F3FF' }}>
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی ' products={products}
-                        banner='../../../images/products/tstst.png' />
-                </div>
+            <div className='container-fluid my-5 pt-3' style={{ backgroundColor: '#D0F3FF' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی ' products={products}
+                    banner='../../../images/products/tstst.png' />
             </div>
             {/* ------- PRODUCT CATEGORY BANNER -------- */}
             <div className='container my-5'>
@@ -109,12 +104,9 @@ function Homepage() {
                 </div>
             </div>
             {/* ------- PRODUCT CAROUSEL -------- */}
-            <div className='container-fluid my-5 py-3'>
-                {/*  style={{ backgroundColor: '#D0F3FF' }} */}
-                <div className="" style={{ backgroundColor: '#D0F3FF' }} >
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
-                        products={spProducts.specialOffer} />
-                </div>
+            <div className='container-fluid my-5 pt-3' style={{ backgroundColor: '#D0F3FF' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
+                    products={spProducts.specialOffer} />
             </div>
             {/* --------------BANNERS----------- */}
             <div className="container my-5 pt-5">
