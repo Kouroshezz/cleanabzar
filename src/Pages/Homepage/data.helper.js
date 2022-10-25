@@ -12,6 +12,9 @@ export const settings = {
 export const productCarousel = {
     dots: false,
     autoplay: true,
+    draggable: true,
+    swipeToSlide: true,
+    accessibility: true,
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -30,7 +33,6 @@ export const productCarousel = {
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                // centerPadding: '15px',
             }
         },
         {
@@ -46,8 +48,6 @@ export const productCarousel = {
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                centerMode: true,
-                // centerPadding: '10px',
             }
         }
     ]
