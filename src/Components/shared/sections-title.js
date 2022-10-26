@@ -11,7 +11,7 @@ function SectionTitle({ titlePrimary, titleDark, link }) {
                 <span className="border flex-grow-1 ms-3"></span>
                 <Link to={`${link}`}>مشاهده همه</Link>
             </div> :
-                <div className='divider flex-grow-1 me-4 d-inline-flex align-items-center text-primary'>
+                <div className='divider flex-grow-1 me-4 d-none d-lg-inline-flex align-items-center text-primary'>
                     <span className="border flex-grow-1 ms-3"></span>
                 </div>
             }
