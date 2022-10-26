@@ -58,6 +58,7 @@
 
     .thumbnails {
         .single {
+            cursor: pointer;
             margin: 0 .8rem;
             border-radius: .8rem;
             width: 8rem !important;
@@ -171,6 +172,10 @@
     .category-title * {
         font-size: 2.4rem !important;
 
+        @include media-breakpoint-down(sm) {
+            font-size: 2rem !important;
+        }
+
     }
 
     //----------- DES & Attributes
@@ -238,9 +243,8 @@
     }
 
     .slick-track {
-        &>div {
-            align-items: center;
-            display: inline-flex;
+        &>div figure {
+            width: 100% !important;
         }
     }
 }
