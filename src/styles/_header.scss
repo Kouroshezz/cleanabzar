@@ -78,7 +78,7 @@ header {
     }
 
     .loading {
-        margin-left: 2rem;
+        // margin-left: 2rem;
         animation: loading infinite linear 1s;
         animation-play-state: running;
     }
@@ -263,7 +263,7 @@ header {
 
 .searchResult {
     top: 110%;
-    right: 20px;
+    right: 0;
     height: 150px;
     z-index: 999999;
     overflow-y: auto;

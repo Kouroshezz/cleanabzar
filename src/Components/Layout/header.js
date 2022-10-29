@@ -4,7 +4,6 @@ import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, use
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Add, ArrowDown2, ArrowLeft2, ArrowRight2, Call, HambergerMenu, Profile, SearchNormal1, ShoppingCart, User } from 'iconsax-react';
 // ------ ICONS
-import MobileDevice from '../../Context';
 import { type } from '@testing-library/user-event/dist/type';
 
 function Header() {
@@ -81,11 +80,11 @@ function Header() {
                 {/* -------- HEADER IN LG ABOVE ----- */}
                 <div className='d-none d-lg-block'>
                     <div className="d-flex align-items-center px-3" style={{ position: 'relative', zIndex: '1', background: '#ffffff' }}>
-                        <Link to='/'>
+                        <Link to='/' className='ms-5'>
                             <img src='../../../LOGO.svg' />
                         </Link>
                         <form className='ms-auto flex-grow-1 position-relative'>
-                            <div className='input_wrapper d-flex align-items-center me-5'>
+                            <div className='input_wrapper d-flex align-items-center'>
                                 <span className='icon text-gray p-3'> <SearchNormal1 /></span>
                                 <input type='text' placeholder='جستجو...' value={searchParam} className='p-3'
                                     tabIndex={1} onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
@@ -166,7 +165,7 @@ function Header() {
                     </div>
                     <div className="d-flex justify-content-between align-items-center border-b pb-3 mb-5">
                         <form className='ms-auto flex-grow-1 position-relative'>
-                            <div className='input_wrapper d-flex align-items-center me-5'>
+                            <div className='input_wrapper d-flex align-items-center ms-auto'>
                                 <span className='icon text-gray p-3'> <SearchNormal1 /></span>
                                 <input type='text' value={searchParam} placeholder='جستجو...' className='p-3'
                                     onChange={(e) => { setSearchParam(e.target.value); search(e) }} />
