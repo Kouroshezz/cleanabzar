@@ -12,7 +12,6 @@ function ProductGallery() {
     const [nav2, setNav2] = useState();
 
     // ------- Lightbox
-    const [lightbox, setLightbox] = useState('');
 
     const imgWidth = 376;
     const lensWidth = 100;
@@ -22,18 +21,7 @@ function ProductGallery() {
 
     return (
         <div className="product-gallery p-2 p-lg-4">
-            {/* -------- */}
-            {/* {lightbox &&
-                <>
-                    <Modal close={() => setLightbox('')}  >
-                        <div className="d-flex justify-content-center" >
-                            <InnerImageZoom width='70%' height='100%' className='text-center'
-                                zoomScale={1.5} src={`${lightbox}`} zoomSrc={`${lightbox}`} />
-                        </div>
-                    </Modal>
-                </>} */}
 
-            {/* ------------- */}
             <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
@@ -41,7 +29,7 @@ function ProductGallery() {
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
             </Slider>
             <Slider asNavFor={nav1} focusOnSelect={true} ref={(slider2) => setNav2(slider2)} className='thumbnails' slidesToShow={4}
-                swipeToSlide={true} infinite={false} >
+                swipeToSlide={true} infinite={false}>
                 <div className='d-inline-flex justify-content-center single'>
                     <img className='img-fluid' src='../../../images/products/2464056-removebg-preview 1.png' />
                 </div>
@@ -56,6 +44,7 @@ function ProductGallery() {
                 </div>
             </Slider>
             <div className="d-flex justify-content-between thumbnails">
+
             </div>
             {/* ------------ */}
         </div>
