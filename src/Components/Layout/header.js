@@ -63,16 +63,15 @@ function Header() {
         window.addEventListener('scroll', () => {
             if (window.scrollY < 200) {
                 header.current.style.cssText = 'max-height:auto';
-                // headerbottom.current.style.cssText = 'transition:all 250ms';
                 headerbottom?.current?.classList?.remove('hide');
             }
             if (window.scrollY > 200) {
-                header.current.style.cssText = 'max-height:80px'
-                headerbottom.current?.classList?.add('hide');
+                header.current.style.cssText = 'max-height:80px';
+                headerbottom?.current?.classList?.add('hide');
             }
         });
 
-        checkMobile && hideSideMenu();
+        document.documentElement?.offsetWidth < 600 && hideSideMenu();
         closeMegamenu();
     }, [pathname])
 
