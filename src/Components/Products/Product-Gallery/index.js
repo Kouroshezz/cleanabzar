@@ -12,6 +12,7 @@ function ProductGallery() {
     const [nav2, setNav2] = useState();
 
     // ------- Lightbox
+    const [lightbox, setLightbox] = useState('');
 
     const imgWidth = 376;
     const lensWidth = 100;
@@ -21,7 +22,7 @@ function ProductGallery() {
 
     return (
         <div className="product-gallery p-2 p-lg-4">
-
+            {/* ------------- */}
             <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
