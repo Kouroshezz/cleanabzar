@@ -40,7 +40,7 @@
     }
 
     h5 a {
-        color: $black  !important;
+        color: $black !important;
     }
 
     img {
@@ -63,7 +63,7 @@
     }
 
     strong {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     &_offer-banner {
@@ -162,5 +162,5 @@
 }
 
 .slick-slide.slick-current .single {
-    border-color: $primary  !important;
+    border-color: $primary !important;
 }

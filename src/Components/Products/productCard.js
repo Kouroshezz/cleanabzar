@@ -42,7 +42,7 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
                         <span className='prev-price d-flex justify-content-center text-12' dir='rtl'><span>{price}</span>
                             <span className='text-14 mx-2'>تومان</span></span>
                     </div>
-                    <span className="d-block text-center mb-3 d-flex justify-content-center align-items-center">
+                    <span className="d-block text-center mb-3 d-flex justify-content-center align-items-center" dir='ltr'>
                         <span className='text-14 mx-2'>تومان</span><strong>{Number(offer.price).toLocaleString()}</strong></span>
                 </>
                 // -------- ordinary product
