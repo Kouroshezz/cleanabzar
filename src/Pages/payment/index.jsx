@@ -1,3 +1,4 @@
+import { Danger } from 'iconsax-react';
 import React, { useCallback, useState } from 'react'
 //------ library
 import { useForm } from 'react-hook-form';
@@ -8,17 +9,48 @@ import Layout from '../../Components/Layout';
 
 function Payment() {
 
-    const persianLetterPattern = /^[A-Za-z\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC]+$/;
+    const persianLetterPattern = /^[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC]+$/;
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm();
     const onSubmit = data => { //--
+        console.table(data)
     };
 
-    const [btnDisable, setBtnDisable] = useState(false);
-
-    const checkPolicy = useCallback((e) => {
-        setBtnDisable(e.target.checked)
-    }, [])
+    // check national code function
+    function checkNC(meli_code) {
+        if (meli_code.length == 10) {
+            if (meli_code == '1111111111' ||
+                meli_code == '0000000000' ||
+                meli_code == '2222222222' ||
+                meli_code == '3333333333' ||
+                meli_code == '4444444444' ||
+                meli_code == '5555555555' ||
+                meli_code == '6666666666' ||
+                meli_code == '7777777777' ||
+                meli_code == '8888888888' ||
+                meli_code == '9999999999') {
+                return false;
+            }
+            let c = parseInt(meli_code.charAt(9));
+            let n = parseInt(meli_code.charAt(0)) * 10 +
+                parseInt(meli_code.charAt(1)) * 9 +
+                parseInt(meli_code.charAt(2)) * 8 +
+                parseInt(meli_code.charAt(3)) * 7 +
+                parseInt(meli_code.charAt(4)) * 6 +
+                parseInt(meli_code.charAt(5)) * 5 +
+                parseInt(meli_code.charAt(6)) * 4 +
+                parseInt(meli_code.charAt(7)) * 3 +
+                parseInt(meli_code.charAt(8)) * 2;
+            let r = n - parseInt(n / 11) * 11;
+            if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
     return (
         <>
@@ -38,13 +70,15 @@ function Payment() {
                                         <input type='text' className={`d-block w-100 ${errors?.firstName && 'border-danger'}`} placeholder='نام شما'
                                             {...register("firstName", { required: true, minLength: 3, maxLength: 25, pattern: persianLetterPattern })} />
                                         {errors.firstName?.type === 'required' && <span className='text-12 text-danger'>فیلد نام ضروریست</span>}
+                                        {errors.firstName?.type === 'pattern' && <span className='text-12 text-danger'>فیلد نام باید حروف فارسی باشد</span>}
                                     </div>
                                     {/* -- LAST NAME -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>نام خانوادگی<sup className='text-danger'>*</sup></label>
                                         <input type='text' {...register('lastName', { required: true, pattern: persianLetterPattern, minLength: 3, maxLength: 25 })}
                                             className={`d-block w-100 ${errors?.lastName && 'border-danger'}`} placeholder='نام خانوداگی شما' />
-                                        {errors?.lastName && <span className='text-12 text-danger'>نام خانوادگی خود را وارد نمایید</span>}
+                                        {errors.lastName?.type === 'required' && <span className='text-12 text-danger'>نام خانوادگی خود را وارد نمایید</span>}
+                                        {errors.lastName?.type === 'pattern' && <span className='text-12 text-danger'>لطفا از حروف فارسی استفاده نمایید</span>}
                                     </div>
                                 </div>
                                 <div className="my-2 my-lg-5"></div>
@@ -59,10 +93,16 @@ function Payment() {
                                         {errors.mobile?.type === "minLength" || errors.mobile?.type === "maxLength" &&
                                             <span className='text-12 text-danger'> تلفن همراه 11 رقمی میباشد</span>}
                                     </div>
-                                    {/* -- NN -- */}
+                                    {/* -- National Code -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>کدملی<sup className='text-danger'>*</sup></label>
-                                        <input type='text' className='d-block w-100' placeholder='کد 10 رقمی' />
+                                        <input type='text' className={`d-block w-100 ${errors?.nationalcode && 'border-danger'}`} placeholder='کد 10 رقمی'
+                                            {...register('nationalcode', { required: true, minLength: 10, maxLength: 10, pattern: /\d{9}/, validate: val => checkNC(val) })}
+                                        />
+                                        {errors.nationalcode?.type === 'maxLength' || errors.nationalcode?.type === 'minLength' && <span className="text-danger">کد ملی باید 10 رقمی باشد</span>}
+                                        {errors.nationalcode?.type === 'pattern' && <span className="text-danger">کد ملی وارد شده صحیح نمیباشد </span>}
+                                        {errors.nationalcode?.type === 'validate' && <span className="text-danger">کد ملی وارد شده صحیح نمیباشد </span>}
+                                        {errors.nationalcode?.type === 'required' && <span className="text-danger">کد ملی خود را وارد نمایید</span>}
                                     </div>
                                 </div>
 
@@ -79,14 +119,14 @@ function Payment() {
                                     {/* -- POSTAL CODE -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>کد پستی<sup className='text-danger'>*</sup></label>
-                                        <input type='text' {...register('postalcode', { required: true, minLength: 16, maxLength: 16 })}
-                                            className={`d-block w-100 ${errors?.postalcode && 'border-danger'}`} placeholder='کد 16 رقمی' />
+                                        <input type='text' {...register('postalcode', { required: true, minLength: 10, maxLength: 10, pattern: /(?!(\d)\1{3})[13-9]{4}[1346-9][013-9]{5}/ })}
+                                            className={`d-block w-100 ${errors?.postalcode && 'border-danger'}`} placeholder='کد 10 رقمی' />
                                         {errors.postalcode?.type === 'required' && <span className='text-12 text-danger'> کدپستی خود را وارد نمایید </span>}
+                                        {errors.postalcode?.type === 'pattern' && <span className='text-12 text-danger'>کد پستی وارد شده صحیح نمیباشد</span>}
                                         {errors.postalcode?.type === 'minLength' || errors.postalcode?.type === 'maxLength'
-                                            && <span className='text-12 text-danger'>  کد پستی 16 رقمی میباشد</span>}
+                                            && <span className='text-12 text-danger'>  کد پستی 10 رقمی میباشد</span>}
                                     </div>
                                 </div>
-
                                 <div className="my-2 my-lg-5"></div>
                                 <div className="row">
                                     {/* -- ADDRESS -- */}
@@ -109,12 +149,12 @@ function Payment() {
                         <Receipt >
 
                             <div className='d-flex align-items-center'>
-                                <input id='policy' type="checkbox" onChange={(e) => checkPolicy(e)} />
+                                <input id='policy' type="checkbox" {...register('checkpolicy', { required: true })} />
                                 <label htmlFor='policy' className='text-gray me-2'>پرداخت امن به وسیله کلیه کارت های عضو شتاب از طریق درگاه بانک ملت</label>
                             </div>
                             {errors?.policy && <span className='text-danger text-12 d-block'>قوانین را بپذیرید</span>}
-                            <a className={`btn ${btnDisable ? 'btn-primary' : 'btn-disabled'} w-50 mt-4 py-3 mx-5`}
-                                disabled={btnDisable ? true : false} onClick={handleSubmit(onSubmit)}
+                            <a className={`btn ${isValid ? 'btn-primary' : 'btn-disabled'} w-50 mt-4 py-3 mx-5`}
+                                disabled={!isValid} onClick={handleSubmit(onSubmit)}
                             >تکمیل سفارش</a>
                         </Receipt>
                     </div>
