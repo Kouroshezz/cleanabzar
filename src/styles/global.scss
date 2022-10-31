@@ -153,3 +153,10 @@ a {
 .slick-arrow:before {
     display: none !important;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: $white;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
