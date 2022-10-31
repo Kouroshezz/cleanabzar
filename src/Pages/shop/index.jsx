@@ -43,15 +43,13 @@ function Shop() {
             // search: `?sort=${sort ? sort : (query ? query : '')}&page=${page}`
             search: `?sort=${sort || query || ''}&page=${page}`
         })
-
-    }, [selectedOption, page, sort])
+    }, [page, sort])
 
 
     return (
         <>
             <div className="container shop mt-150 animate__animated animate__fadeIn  mb-5">
-                <SortProducts sort={sort} setSort={setSort} selectedOption={selectedOption}
-                    setSelectedOption={setSelectedOption} />
+                <SortProducts sort={sort} setSort={setSort} />
                 {/* ---------------------------------------- */}
                 <div className="row">
                     {/* ------FILTER--------- */}

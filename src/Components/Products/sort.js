@@ -3,7 +3,7 @@ import { Setting5 } from 'iconsax-react';
 import Select from 'react-select';
 import { useSearchParams } from 'react-router-dom';
 
-function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
+function SortProducts({ sort, setSort }) {
 
     const [search] = useSearchParams();
     let sortQuery = search.get('sort');
@@ -30,8 +30,6 @@ function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
                 return item.classList.remove('text-primary')
             }
         });
-
-
     }, [sortQuery])
 
     return (
@@ -57,8 +55,8 @@ function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
                 <span>مرتب سازی : </span>
                 <Select className='flex-grow-1 me-3'
                     placeholder={'انتخاب کنید'}
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
+                    defaultValue={sort}
+                    onChange={(e) => setSort(e.data)}
                     options={sortOptions}
                 />
             </div>
