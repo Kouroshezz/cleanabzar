@@ -87,17 +87,16 @@ function Payment() {
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>شماره موبایل<sup className='text-danger'>*</sup></label>
                                         <input type='number' className={`d-block w-100 ${errors.mobile && 'border-danger'}`} placeholder='09121234567'
-                                            {...register("mobile", { required: true, pattern: /^[09][0-9]{9}/, minLength: 11, maxLength: 11 })} />
+                                            {...register("mobile", { required: true, pattern: /^[09][0-9]{9}$/, minLength: 11, maxLength: 11 })} />
                                         {errors.mobile?.type === 'required' && <span className='text-12 text-danger'>فیلد تلفن همراه  ضروریست</span>}
                                         {errors.mobile?.type === "pattern" && <span className='text-12 text-danger'> تلفن همراه با 09 آغاز میشود</span>}
-                                        {errors.mobile?.type === "minLength" || errors.mobile?.type === "maxLength" &&
-                                            <span className='text-12 text-danger'> تلفن همراه 11 رقمی میباشد</span>}
+                                        {errors.mobile?.type === "minLength" || errors.mobile?.type === "maxLength" && <span className='text-12 text-danger'> تلفن همراه 11 رقمی میباشد</span>}
                                     </div>
                                     {/* -- National Code -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>کدملی<sup className='text-danger'>*</sup></label>
                                         <input type='text' className={`d-block w-100 ${errors?.nationalcode && 'border-danger'}`} placeholder='کد 10 رقمی'
-                                            {...register('nationalcode', { required: true, minLength: 10, maxLength: 10, pattern: /\d{9}/, validate: val => checkNC(val) })}
+                                            {...register('nationalcode', { required: true, minLength: 10, maxLength: 10, pattern: /\d{10}/, validate: val => checkNC(val) })}
                                         />
                                         {errors.nationalcode?.type === 'maxLength' || errors.nationalcode?.type === 'minLength' && <span className="text-danger">کد ملی باید 10 رقمی باشد</span>}
                                         {errors.nationalcode?.type === 'pattern' && <span className="text-danger">کد ملی وارد شده صحیح نمیباشد </span>}
