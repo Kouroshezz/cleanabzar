@@ -1,56 +1,23 @@
 import { Danger } from 'iconsax-react';
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 //------ library
 import { useForm } from 'react-hook-form';
 //------ components
+import { checkNC, persianLetterPattern } from '../../Utils/helper-functions';
 import Receipt from '../../Components/Cart/receipt';
 import Steps from '../../Components/Cart/steps';
 import Layout from '../../Components/Layout';
 
 function Payment() {
 
-    const persianLetterPattern = /^[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC]+$/;
+    const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({
+        mode: 'onChange',
+    });
 
-    const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm();
-    const onSubmit = data => { //--
+    const onSubmit = data => {
+        !isValid && data.preventDefault();
         console.table(data)
     };
-
-    // check national code function
-    function checkNC(meli_code) {
-        if (meli_code.length == 10) {
-            if (meli_code == '1111111111' ||
-                meli_code == '0000000000' ||
-                meli_code == '2222222222' ||
-                meli_code == '3333333333' ||
-                meli_code == '4444444444' ||
-                meli_code == '5555555555' ||
-                meli_code == '6666666666' ||
-                meli_code == '7777777777' ||
-                meli_code == '8888888888' ||
-                meli_code == '9999999999') {
-                return false;
-            }
-            let c = parseInt(meli_code.charAt(9));
-            let n = parseInt(meli_code.charAt(0)) * 10 +
-                parseInt(meli_code.charAt(1)) * 9 +
-                parseInt(meli_code.charAt(2)) * 8 +
-                parseInt(meli_code.charAt(3)) * 7 +
-                parseInt(meli_code.charAt(4)) * 6 +
-                parseInt(meli_code.charAt(5)) * 5 +
-                parseInt(meli_code.charAt(6)) * 4 +
-                parseInt(meli_code.charAt(7)) * 3 +
-                parseInt(meli_code.charAt(8)) * 2;
-            let r = n - parseInt(n / 11) * 11;
-            if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
 
     return (
         <>
@@ -70,7 +37,7 @@ function Payment() {
                                         <input type='text' className={`d-block w-100 ${errors?.firstName && 'border-danger'}`} placeholder='نام شما'
                                             {...register("firstName", { required: true, minLength: 3, maxLength: 25, pattern: persianLetterPattern })} />
                                         {errors.firstName?.type === 'required' && <span className='text-12 text-danger'>فیلد نام ضروریست</span>}
-                                        {errors.firstName?.type === 'pattern' && <span className='text-12 text-danger'>فیلد نام باید حروف فارسی باشد</span>}
+                                        {errors.firstName?.type === 'pattern' && <span className='text-12 text-danger'>لطفا از حروف فارسی استفاده نمایید</span>}
                                     </div>
                                     {/* -- LAST NAME -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
@@ -87,7 +54,7 @@ function Payment() {
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>شماره موبایل<sup className='text-danger'>*</sup></label>
                                         <input type='number' className={`d-block w-100 ${errors.mobile && 'border-danger'}`} placeholder='09121234567'
-                                            {...register("mobile", { required: true, pattern: /^[09][0-9]{9}$/, minLength: 11, maxLength: 11 })} />
+                                            {...register("mobile", { required: true, pattern: /^[09]{2}\d{9}$/, minLength: 11, maxLength: 11 })} />
                                         {errors.mobile?.type === 'required' && <span className='text-12 text-danger'>فیلد تلفن همراه  ضروریست</span>}
                                         {errors.mobile?.type === "pattern" && <span className='text-12 text-danger'> تلفن همراه با 09 آغاز میشود</span>}
                                         {errors.mobile?.type === "minLength" || errors.mobile?.type === "maxLength" && <span className='text-12 text-danger'> تلفن همراه 11 رقمی میباشد</span>}
