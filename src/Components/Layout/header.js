@@ -65,7 +65,7 @@ function Header() {
                 headerbottom?.current?.classList?.remove('hide');
             }
             if (window.scrollY > 200) {
-                header.current.style.cssText = 'max-height:80px';
+                header.current.style.cssText = 'height:70px;max-height:70px';
                 headerbottom?.current?.classList?.add('hide');
             }
         });
@@ -76,9 +76,9 @@ function Header() {
 
     return (
         <>
-            <header className='container-fluid pt-3 d-flex flex-column px-4' ref={header}>
+            <header className='container-fluid pt-3 d-flex flex-column px-4'>
                 {/* -------- HEADER IN LG ABOVE ----- */}
-                <div className='d-none d-lg-block'>
+                <div className='d-none d-lg-block' ref={header}>
                     <div className="d-flex align-items-center px-3" style={{ position: 'relative', zIndex: '1', background: '#ffffff' }}>
                         <Link to='/' className='ms-5'>
                             <img src='../../../LOGO.svg' />
