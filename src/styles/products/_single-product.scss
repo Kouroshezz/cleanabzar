@@ -222,7 +222,7 @@
     }
 
     .active-spec {
-        color: $primary  !important;
+        color: $primary !important;
         border-bottom: 4px solid $primary;
     }
 
@@ -249,6 +249,17 @@
     }
 }
 
+// -----
+.productImages-master {
+    .slick-arrow {
+        z-index: 999;
+    }
+
+    .slick-prev {
+        right: 0 !important;
+    }
+}
+
 //------
 
 
@@ -259,7 +270,7 @@
     position: fixed;
     padding: 1rem 1.5rem;
     z-index: 999;
-    background-color: $white  !important;
+    background-color: $white !important;
     border-top: 1px solid #{$text-gray}30;
 
     a {

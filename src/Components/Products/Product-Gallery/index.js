@@ -23,14 +23,15 @@ function ProductGallery() {
     return (
         <div className="product-gallery p-2 p-lg-4">
             {/* ------------- */}
-            <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+            <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}
+                nextArrow={<NextArrow />} prevArrow={<PrevArrow />} dots={true} className='productImages-master'>
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
                 <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
             </Slider>
-            <Slider asNavFor={nav1} focusOnSelect={true} ref={(slider2) => setNav2(slider2)} className='thumbnails' slidesToShow={4}
-                swipeToSlide={true} infinite={false}>
+            <Slider asNavFor={nav1} focusOnSelect={true} ref={(slider2) => setNav2(slider2)} className='mt-5 thumbnails' slidesToShow={4}
+                swipeToSlide={true} infinite={false} arrows={true}>
                 <div className='d-inline-flex justify-content-center single'>
                     <img className='img-fluid' src='../../../images/products/2464056-removebg-preview 1.png' />
                 </div>
@@ -48,7 +49,7 @@ function ProductGallery() {
 
             </div>
             {/* ------------ */}
-        </div>
+        </div >
     )
 }
 
@@ -61,7 +62,7 @@ const productGallery = {
         {
             breakpoint: 900,
             settings: {
-                arrows: false,
+                arrows: true,
             }
         },
         {
