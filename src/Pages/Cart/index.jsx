@@ -47,13 +47,16 @@ function Cart() {
                                         <td className='flex-shrink-1 p-4'>{index + 1}</td>
                                         <td className='p-4 d-flex align-items-center title'>
                                             <img className='img-fluid' src={`${item.image}`} />
-                                            <span className='me-3 text-end'>{item.title}</span>
+                                            <div>
+                                                <span className='d-block me-3 text-end'>{item.title}</span>
+                                                <span className='d-block me-3 mt-3 text-end text-12'>رنگ : سبز</span>
+                                            </div>
                                         </td>
                                         <td className='flex-grow-1 p-4 quantity'>
-                                            <div className="inline-flex aling-items-center">
-                                                <span className="quantity-btn increment">+</span>
+                                            <div className="d-inline-flex align-items-center">
+                                                <span className="quantity-btn increment"><Add size='16' /></span>
                                                 <span className='mx-3'>{item.quantity}</span>
-                                                <span className="quantity-btn decrement">-</span>
+                                                <span className="quantity-btn decrement"><Minus size='16' /></span>
                                             </div>
                                         </td>
                                         <td className='flex-grow-1 p-4 price'>{item.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} <span className='text-16'>تومان</span></td>
@@ -68,11 +71,14 @@ function Cart() {
                                 <div className='d-flex mb-4 box mx-4 p-4' key={index}>
                                     <img src={`${item.image}`} className='rounded-3 ms-4' width={150} height={150} />
                                     <div className='d-inline-flex flex-column w-50'>
-                                        <h4 className='text-16'>{item.title}</h4>
-                                        <div className="inline-flex aling-items-center mt-auto">
-                                            <span className="quantity-btn increment" onTouchEnd={() => setQuantity(prev => prev + 1)}><Add size='24' /></span>
+                                        <div className='mb-4'>
+                                            <h4 className='text-14'>{item.title}</h4>
+                                            <span className='d-block mt-3 text-12'>رنگ : سبز</span>
+                                        </div>
+                                        <div className="d-inline-flex align-items-center mt-auto">
+                                            <span className="quantity-btn increment" onTouchEnd={() => setQuantity(prev => prev + 1)}><Add size='22' /></span>
                                             <span className='mx-3'>{quantity}</span>
-                                            <span className="quantity-btn decrement" onTouchEnd={() => setQuantity(quantity - 1)}><Minus size='24' /></span>
+                                            <span className="quantity-btn decrement" onTouchEnd={() => setQuantity(quantity - 1)}><Minus size='22' /></span>
                                         </div>
                                         <div className='d-flex align-items-baseline mt-5 text-14'>
                                             <span> قیمت :</span><strong className=''>{Number(item.price).toLocaleString()}</strong>

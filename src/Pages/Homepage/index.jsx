@@ -11,9 +11,9 @@ import BannerHomepage from './banner';
 import Layout from '../../Components/Layout';
 import BlogCard from '../../Components/Blog/itemcard';
 import ReviewCard from '../../Components/Reviews/review-card';
+import SectionsTitle from '../../Components/shared/sections-title';
 import CategoryBanner from '../../Components/Products/categoryBanner';
 import ProductCarousel from '../../Components/Products/productCarousel';
-import SectionsTitle from '../../Components/shared/sections-title';
 import { NextArrowhp, PrevArrowhp } from '../../Components/shared/Homeslider-arrows';
 
 
