@@ -160,3 +160,22 @@ input:-webkit-autofill:active {
     background-color: $white;
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+
+
+// ----------- QUANTITY BUTTONS STYLE -----------
+.quantity-btn {
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    color: #{$black}90;
+    padding: .4rem;
+    border:1px solid #{$primary}60;
+
+    @include media-breakpoint-up(lg) {
+        padding: .4rem .8rem;
+    }
+
+    &:hover {
+        border-color: #{$primary}90;
+    }
+}

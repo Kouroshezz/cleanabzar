@@ -65,8 +65,8 @@
 
         .avtive {
             &-step {
-                color: $white  !important;
-                background-color: $primary  !important;
+                color: $white !important;
+                background-color: $primary !important;
             }
 
             &-line {
@@ -137,15 +137,6 @@
                 }
             }
         }
-    }
-
-    .quantity-btn {
-        cursor: pointer;
-        font-size: 1.8rem;
-        color: #{$black}90;
-        padding: .5rem 1rem;
-        border-radius: .4rem;
-        background-color: #{$primary}15;
     }
 
     .itemsHeader {

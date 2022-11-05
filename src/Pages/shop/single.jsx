@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 // -------------- LIBRARY
 import { useForm } from 'react-hook-form';
-import { ArrowForward, Heart, ShoppingCart } from 'iconsax-react';
+import { Add, ArrowForward, Heart, Minus, ShoppingCart } from 'iconsax-react';
 // -------------- COMPONENTS
 import Layout from '../../Components/Layout';
 import Footer from '../../Components/Layout/footer';
@@ -34,8 +34,13 @@ function SingleProduct() {
 
     const commentRef = useRef(null);
     const actionBoxRef = useRef(null);
-
+    const [attr, setAttr] = useState({ color: '', quantity: 1, colorHex: '' })
     //const [data, setData] = useState();
+
+    useEffect(() => {
+
+    }, [])
+
 
     useLayoutEffect(() => {
 
@@ -48,7 +53,8 @@ function SingleProduct() {
         window.scrollTo(0, 0);
         const commentSecOffset = commentRef.current.offsetTop - 150;
         const actionBoxOffset = actionBoxRef.current.offsetTop;
-        window.addEventListener('scroll', () => {
+
+        const onWindowScrollFunctions = () => {
             if (window.pageYOffset > actionBoxOffset && window.pageYOffset < commentSecOffset) {
                 actionBoxRef.current.style.cssText = `position:fixed;top:150px;width:${actionBoxRef.current.offsetWidth}px`;
             }
@@ -73,10 +79,27 @@ function SingleProduct() {
                     document.querySelector(`.details li a[href*="${sectionId}"]`).classList.remove("active-spec");
                 }
             });
-        })
-        //--------------------------------------
+        }
 
+        window.addEventListener('scroll', onWindowScrollFunctions)
+        //--------------------------------------
+        return () => {
+            window.removeEventListener('scroll', onWindowScrollFunctions)
+        }
     }, [])
+
+    // ----- SELECT PRODUCT COLOR ------
+    function setColor(e, colorCode) {
+        let Productcolor = e.target.attributes.value.textContent;
+        setAttr({ ...attr, color: Productcolor, colorHex: colorCode })
+    }
+    // ----- SELECT PRODUCT QUANTITY ------ 
+    function addQuantity(action) {
+        action === 'plus' && setAttr({ ...attr, quantity: attr.quantity + 1 });
+        if (action === 'minus' && attr.quantity > 1) {
+            setAttr({ ...attr, quantity: attr.quantity - 1 });
+        }
+    }
 
     return (
         <>
@@ -94,12 +117,24 @@ function SingleProduct() {
                         <div className="col-12 col-lg-6">
                             <div className="summary mt-4 mt-lg-0">
                                 <h1>جارو برقی بوش مدل BGL8PRO5IR</h1>
+                                {/* ------- */}
+                                <h3 className='my-lg-4 mb-3'>ویژگی ها</h3>
+                                <ul className='attributes'>
+                                    {attributes.map((item, index) =>
+                                        <li className='d-flex align-items-center my-3' key={index}>
+                                            <span className='text-gray ms-4'>{item.attribute} : </span>
+                                            <span>{item.value}</span>
+                                        </li>
+                                    )}
+                                </ul>
+                                <div className="border-b my-4 w-50"></div>
+                                {/* ------ PRODUCTS'S COLORS ------- */}
                                 <div className='d-flex align-items-center'>
-                                    <span className='ms-4 my-5 colors'>رنگ ها : </span>
+                                    <span className='ms-4 colors'>رنگ ها : </span>
                                     <ul className='d-flex align-items-center'>
                                         {colors.map((item, index) =>
                                             <li key={index} className='d-block mx-3  position-relative'>
-                                                <span className='color'
+                                                <span className={`color ${item.title === attr.color && 'selected'}`} value={item.title} onClick={(e) => setColor(e, item.color)}
                                                     style={{
                                                         backgroundColor: `${item.color}`,
                                                         border: `${item.title.includes('سفید') && '1px solid #101010'}`
@@ -110,17 +145,16 @@ function SingleProduct() {
                                         )}
                                     </ul>
                                 </div>
-                                {/* ------- */}
-
-                                <h3 className='mt-lg-5 mb-3'>ویژگی ها</h3>
-                                <ul className='attributes'>
-                                    {attributes.map((item, index) =>
-                                        <li className='d-flex align-items-center my-3' key={index}>
-                                            <span className='text-gray ms-4'>{item.attribute} : </span>
-                                            <span>{item.value}</span>
-                                        </li>
-                                    )}
-                                </ul>
+                                {/* -------- QUANTITY ------ */}
+                                <div className='d-flex align-items-center mt-5'>
+                                    <span className='ms-4 colors'>تعداد : </span>
+                                    <div className="inline-flex aling-items-center">
+                                        <span className="quantity-btn increment" onClick={() => addQuantity('plus')}><Add size='16' /></span>
+                                        <span className='mx-3'>{attr.quantity}</span>
+                                        <span className="quantity-btn decrement" onClick={() => addQuantity('minus')}><Minus size='16' /></span>
+                                    </div>
+                                </div>
+                                {/* ------------------------ */}
                             </div>
                         </div>
                     </div>
@@ -129,14 +163,20 @@ function SingleProduct() {
                     <div className="d-none d-lg-block col-lg-3">
                         <div className="action-box p-4 text-center" ref={actionBoxRef}>
                             <p>گارانتی ۲۴ ماهه ابراهیم</p>
+                            {/* <p className='d-flex justify-content-between py-3'>
+                                            <span className='text-end'>افزایش قیمت نسبت به هفته گذشته</span>
+                                            <span className='price-change py-2 px-3'>9%</span>
+                                        </p> */}
                             <p className='d-flex justify-content-between py-3'>
-                                <span className='text-end'>افزایش قیمت نسبت به هفته گذشته</span>
-                                <span className='price-change py-2 px-3'>9%</span>
+                                <span className='text-end'>رنگ انتخاب شده :</span>
+                                <span className='text-12' style={{ color: attr.color === 'سفید' ? '#121212' : attr.colorHex || '#121212' }}>
+                                    {attr.color || 'انتخاب کنید'}
+                                </span>
                             </p>
-                            <p className='d-flex justify-content-between py-3'>
-                                <span>تعداد باقی مانده</span>
+                            <p className='d-flex justify-content-between mt-3 py-3'>
+                                <span>تعداد انتخاب شده</span>
                                 <span>
-                                    <span className='py-2 px-2 text-16'>11</span>
+                                    <span className='py-2 px-2 text-16'>{attr.quantity}</span>
                                     <span className='py-2 text-12'>عدد</span>
                                 </span>
                             </p>
@@ -147,10 +187,10 @@ function SingleProduct() {
                                     <span>تومان</span>
                                 </span>
                             </p>
-                            <a className='btn btn-primary text-12 w-100 py-3 mt-5'>
+                            <button className='btn btn-primary text-12 w-100 py-3 mt-5' disabled={!attr.color ? true : false}>
                                 <span> <ShoppingCart width={15} height={15} className='ms-3' /></span>
                                 <span>افزودن به سبد خرید </span>
-                            </a>
+                            </button>
                         </div>
                     </div>
 

@@ -13,9 +13,22 @@
 
         .color {
             width: 1.6rem;
-            display: block;
             height: 1.6rem;
+            display: block;
+            cursor: pointer;
             border-radius: 50%;
+        }
+
+        .color.selected {
+            padding: 2px;
+            width: 1.9rem;
+            height: 1.9rem;
+            background-clip: content-box;
+            border: 2px solid $primary !important;
+        }
+
+        .border-b {
+            border-color: #DEDEDE;
         }
     }
 
@@ -95,7 +108,7 @@
 
         p {
             padding: 1rem 0;
-            border-bottom: 1px solid #{$text-gray}30;
+            border-bottom: 1px solid #{$text-gray}15;
         }
 
         * {
@@ -257,6 +270,10 @@
 
     .slick-prev {
         right: 0 !important;
+
+        @include media-breakpoint-down(sm) {
+            right: -15px !important;
+        }
     }
 }
 
