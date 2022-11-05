@@ -11,10 +11,12 @@ function Header() {
     const { pathname } = useLocation();
 
     const header = useRef(null);
+    const headerTop = useRef(null);
     const headerbottom = useRef(null);
     const mobileSideMenu = useRef(null);
     const [searchParam, setSearchParam] = useState('');
 
+    // ----- open side menu in mobile 
     function showSideMenu() {
         mobileSideMenu.current.classList.add('show_mobile-nav')
     }
@@ -22,6 +24,7 @@ function Header() {
     function hideSideMenu() {
         mobileSideMenu.current.classList.remove('show_mobile-nav')
     }
+    //-----------------
 
     let getsearchParam;
     const search = useCallback((e) => {
@@ -59,26 +62,31 @@ function Header() {
 
     useLayoutEffect(() => {
 
+        // --- fixed top header
         window.addEventListener('scroll', () => {
             if (window.scrollY < 200) {
-                header.current.style.cssText = 'max-height:auto';
+                headerTop.current.style.cssText = 'max-height:auto';
                 headerbottom?.current?.classList?.remove('hide');
             }
             if (window.scrollY > 200) {
-                header.current.style.cssText = 'height:70px;max-height:70px';
+                headerTop.current.style.cssText = 'height:70px;max-height:70px';
                 headerbottom?.current?.classList?.add('hide');
             }
         });
 
         document.documentElement?.offsetWidth < 600 && hideSideMenu();
-        closeMegamenu();
+
+        return () => {
+            closeMegamenu();
+        }
+
     }, [pathname])
 
     return (
         <>
-            <header className='container-fluid pt-3 d-flex flex-column px-4'>
+            <header className='container-fluid pt-3 d-flex flex-column px-4' ref={header}>
                 {/* -------- HEADER IN LG ABOVE ----- */}
-                <div className='d-none d-lg-block' ref={header}>
+                <div className='d-none d-lg-block' ref={headerTop}>
                     <div className="d-flex align-items-center px-3" style={{ position: 'relative', zIndex: '1', background: '#ffffff' }}>
                         <Link to='/' className='ms-5'>
                             <img src='../../../LOGO.svg' />
