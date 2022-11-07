@@ -98,9 +98,10 @@ function Payment() {
                                     {/* -- ADDRESS -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>آدرس<sup className='text-danger'>*</sup></label>
-                                        <textarea {...register('Address', { required: true, minLength: 20, maxLength: 250 })}
+                                        <textarea {...register('Address', { required: true, minLength: 20, maxLength: 250, pattern: persianLetterPattern })}
                                             className={`d-block w-100 ${errors?.Address && 'border-danger'}`} placeholder='استان ، شهر ،‌خیابان ، کوچه ، پلاک ، واحد' rows={5} />
-                                        {errors?.Address && <span className='text-12 text-danger'>آدرس خود را وارد نمایید</span>}
+                                        {errors?.Address?.type === 'required' && <span className='text-12 text-danger'>آدرس خود را وارد نمایید</span>}
+                                        {errors?.Address?.type === 'pattern' && <span className='text-12 text-danger'>لطفا از حروف فارسی استفاده نمایید</span>}
                                     </div>
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'> توضیحات <span className='text-12 text-gray'>  (اختیاری)  </span></label>
