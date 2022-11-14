@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 //---- icons
 import { Add, Minus, Trash } from 'iconsax-react';
 //---- components
 import Layout from '../../Components/Layout';
 import Steps from '../../Components/Cart/steps';
 import Receipt from '../../Components/Cart/receipt';
-
 function Cart() {
 
     const tableHeader = [' محصول', 'تعداد', 'قیمت', ''];
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         //const receipt = document.querySelector('.receipt');
         //window.addEventListener('scroll', () => {
         //    if (window.scrollY > receipt.offsetTop - 50) {
@@ -31,7 +30,7 @@ function Cart() {
                 <Steps cart={true} />
                 <div className="my-5"></div>
                 <div className="row">
-                    <div className="col-12 col-lg-8 order-2 order-lg-1 box table-wrapper">
+                    <div className="col-12 col-lg-8 order-2 order-lg-1 box table-wrapper mt-5 mt-lg-0">
                         <table className='d-none d-lg-block w-100'>
                             <thead className='d-flex align-items-center py-4 w-100'>
                                 <tr className='d-flex w-100 align-items-center'>
@@ -66,7 +65,7 @@ function Cart() {
                             </tbody>
                         </table>
                         {/* ---- items in mobile ---- */}
-                        <div className="block d-lg-none items-sm">
+                        <div className="d-lg-none items-sm mt-5">
                             {cartItems.map((item, index) =>
                                 <div className='d-flex mb-4 box mx-4 p-4' key={index}>
                                     <img src={`${item.image}`} className='rounded-3 ms-4' width={150} height={150} />
