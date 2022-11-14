@@ -154,16 +154,6 @@ function Homepage() {
                 </div>
             </div>
             <div className="my-5 pt-5"></div>
-            {/* ------- REVIEW SECTION --------- */}
-            <div className="container">
-
-                <SectionsTitle link={''} titleDark='آخرین نظرات' titlePrimary='کاربران' />
-                <div className="row">
-                    <div className="col-12 col-lg-4">
-                        <ReviewCard />
-                    </div>
-                </div>
-            </div>
             {/* --------- NEWSLETTER --------- */}
             <section className='container my-5 pt-5'>
                 <div className='row'>
