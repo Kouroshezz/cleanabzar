@@ -1,6 +1,6 @@
 {
-  "short_name": "React PWA  ",
-  "name": "React Redux PWA",
+  "short_name": "Clean Abzar PWA",
+  "name": "Clean Abzar PWA",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "LOGO.svg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "LOGO.svg",
       "type": "image/png",
       "sizes": "512x512"
     }
