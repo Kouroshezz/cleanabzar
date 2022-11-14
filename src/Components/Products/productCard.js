@@ -18,7 +18,7 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
     }
 
     return (
-        <div className='ProductCard bg-white py-4 px-3 rounded-4' id={id}  >
+        <div className='ProductCard bg-white py-4 px-3 rounded-4' id={id}>
 
             <div className='d-flex align-items-center justify-content-between' dir='ltr'>
                 <a onClick={() => addToFavorite(id)}>
@@ -26,7 +26,7 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
                     {fav || favourite ? <Heart variant='Bold' className='text-danger animate__animated animate__heartBeat' /> :
                         <Heart className='text-danger' />}
                 </a>
-                {offer.stat ? <a className='text-danger'><DiscountShape /> </a> : <a><ArrowSwapHorizontal opacity={.6} /></a>}
+                {offer.stat ? <a className='text-danger'><DiscountShape /> </a> : null}
             </div>
             <figure className='d-block text-center'>
                 <Link to={`/shop/product/${id}`}>
