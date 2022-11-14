@@ -25,13 +25,14 @@ function Header() {
         mobileSideMenu.current.classList.remove('show_mobile-nav')
     }
     //-----------------
-
+    // --------- SEARCH IN HEADER 
     let getsearchParam;
     const search = useCallback((e) => {
         clearTimeout(getsearchParam);
         getsearchParam = setTimeout(() => {
             let val = e.target.value;
             val.trim().length > 4 && console.log(val.trim().replace(/\s/g, '%'))
+            // encodeURIComponent()
         }, 600)
     }, [])
 

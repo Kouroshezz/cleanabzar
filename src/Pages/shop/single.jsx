@@ -8,6 +8,8 @@ import Footer from '../../Components/Layout/footer';
 import Header from '../../Components/Layout/header';
 import SectionsTitle from '../../Components/shared/sections-title';
 import ProductGallery from '../../Components/Products/Product-Gallery';
+import { abortApi, api } from '../../Utils/apiFetch';
+import axios from 'axios';
 
 function SingleProduct() {
 
@@ -38,7 +40,12 @@ function SingleProduct() {
     //const [data, setData] = useState();
 
     useEffect(() => {
-
+        let data = api('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+        console.log(data)
+        // axios('https://jsonplaceholder.typicode.com/todos/1', {
+        //     method: 'GET'
+        // })
+        //     .then(data => console.log(data.data))
     }, [])
 
 
@@ -51,7 +58,7 @@ function SingleProduct() {
 
         //---------- Scroll Actions
         window.scrollTo(0, 0);
-        const commentSecOffset = commentRef.current.offsetTop - 150;
+        const commentSecOffset = commentRef.current.offsetTop - 120;
         const actionBoxOffset = actionBoxRef.current.offsetTop;
 
         const onWindowScrollFunctions = () => {

@@ -8,10 +8,13 @@ import ProductCard from '../../Components/Products/productCard';
 import SortProducts from '../../Components/Products/sort';
 import Layout from '../../Components/Layout';
 import Filter from '../../Components/Products/filter';
+import { ArrowDown2 } from 'iconsax-react';
 
 function Shop() {
 
+    const shopFilterRef = useRef(null);
     const [sort, setSort] = useState('');
+    const [price, setPrice] = useState({ min: 0, max: 0 });
     const [selectedOption, setSelectedOption] = useState(null);
 
     // ------- Pagination 
@@ -38,6 +41,20 @@ function Shop() {
 
 
     useEffect(() => {
+
+        // Object.values(shopFilterRef.current.children)
+        //     .filter(item => item.classList.contains('dropdown'))
+        //     .map(item => item.addEventListener('click', (e) => {
+        //         item.classList.add('open')
+        //        item.classList.contains('open') ? item.classList.remove('open') : item.classList.add('open');
+        // if (e.target.localName !== 'div') { e.preventDefault() };
+        //     }))
+
+        document.querySelectorAll('.dropdown').forEach(item => item.addEventListener('click', (e) => {
+            item.classList.contains('open') ? item.classList.remove('open') : item.classList.add('open')
+        }))
+        document.querySelectorAll('.dropdown.open .options').forEach(item => item.addEventListener('click', (e) => e.stopPropagation()))
+
         navigate({
             pathname,
             // search: `?sort=${sort ? sort : (query ? query : '')}&page=${page}`
@@ -45,6 +62,7 @@ function Shop() {
         })
     }, [page, sort])
 
+    console.log(price.min + '\t' + price.max)
 
     return (
         <>
@@ -57,13 +75,39 @@ function Shop() {
                         <div className="filter">
                             <h3 className='border-b pt-2 pb-4 mb-4 text-center'>فیلتر ها</h3>
                             <h5 className=''>محدوده قیمت</h5>
-                            <Filter />
-                            <form onChange={(e) => ''}>
-                                <label htmlFor='price_from d-block'>از</label>
-                                <input type="number" className='w-100' placeholder='0 تومان' min={0} max={1000000} step={50000} />
-                                <div className='my-3'></div>
-                                <label htmlFor='price_from d-bloc'>تا</label>
-                                <input type="number" className='w-100' placeholder='0 تومان' step={50000} min={100000} max={10000000} maxLength={100000000} />
+                            <Filter setPrice={setPrice} />
+                            <form ref={shopFilterRef}>
+                                <div className=" border-b py-4 pointer dropdown">
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <span>برند</span>
+                                        <ArrowDown2 size="16" />
+                                    </div>
+                                    <div className="options">
+                                        {Array(10).fill(null).map((item, index) =>
+                                            <div key={item + index} className='d-flex align-items-center py-2 my-3 text-gray text-14'>
+                                                <input type="checkbox" name="" id="" />
+                                                <label className='me-3'>برند</label>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                {/* ---- */}
+                                <div className=" border-b py-4 pointer dropdown">
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <span>برند</span>
+                                        <ArrowDown2 size="16" />
+                                    </div>
+                                    <div className="options">
+                                        {Array(10).fill(null).map((item, index) =>
+                                            <div key={item + index} className='d-flex align-items-center py-2 my-3 text-gray text-14'>
+                                                <input type="checkbox" name="" id="" />
+                                                <label className='me-3'>برند</label>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* -- checkbox show only available products --*/}
                                 <div className='my-4 d-flex align-items-center'>
                                     <input type='checkbox' id='inStock' value='onlyInStock' />
                                     <label htmlFor='inStock' className=' d-block me-2'>فقط موجود ها را نمایش بده .</label>

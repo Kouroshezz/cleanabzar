@@ -35,6 +35,30 @@
             top: 90px;
             position: sticky;
         }
+
+        .dropdown {
+            height: 50px;
+            overflow: hidden;
+            transition: all .3s ease-in;
+        }
+
+        .dropdown.open {
+            height: 200px;
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+
+        // .options {
+        //     height: 0;
+        //     overflow: hidden;
+        // }
+
+        // .options.open {
+        //     height: 200px;
+        //     max-height: 200px;
+        //     overflow-y: scroll;
+        //     transition: all .4s ease-in;
+        // }
     }
 }
 
@@ -75,7 +99,7 @@
 
         a {
             padding: 1rem 1.5rem;
-            color: $white  !important;
+            color: $white !important;
             background-color: $primary;
         }
     }
@@ -96,7 +120,7 @@
 }
 
 .noUi-connect {
-    background: $primary  !important;
+    background: $primary !important;
 }
 
 .noUi-handle {
@@ -119,5 +143,5 @@
 #react-select-2-listbox {
     z-index: 999;
     position: absolute;
-    background-color: $white  !important;
+    background-color: $white !important;
 }
