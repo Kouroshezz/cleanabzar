@@ -173,10 +173,10 @@ function SingleProduct() {
                             {/* <p className='d-flex justify-content-between py-3'>
                                             <span className='text-end'>افزایش قیمت نسبت به هفته گذشته</span>
                                             <span className='price-change py-2 px-3'>9%</span>
-                                        </p> */}
+                             </p> */}
                             <p className='d-flex justify-content-between py-3'>
                                 <span className='text-end'>رنگ انتخاب شده :</span>
-                                <span className='text-12' style={{ color: attr.color === 'سفید' ? '#121212' : attr.colorHex || '#121212' }}>
+                                <span className='text-14' style={{ color: attr.color === 'سفید' ? '#121212' : attr.colorHex || '#121212' }}>
                                     {attr.color || 'انتخاب کنید'}
                                 </span>
                             </p>
