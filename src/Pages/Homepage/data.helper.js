@@ -38,7 +38,6 @@ export const productCarousel = {
         {
             breakpoint: 600,
             settings: {
-                dots: false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
             }
@@ -46,7 +45,8 @@ export const productCarousel = {
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 1,
+                centerPadding: '10px',
+                slidesToShow: 2,
                 slidesToScroll: 1,
             }
         }
