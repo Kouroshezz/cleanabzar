@@ -216,3 +216,31 @@
     margin: 0 1.6rem;
     background-color: #F5F5F5;
 }
+
+.mobile-cart-items {
+    &>div:nth-child(2n+1) {
+        background-color: #FAFAFA;
+    }
+
+    img {
+        padding: 16px 24px;
+        border: 1px solid #10101008;
+    }
+}
+
+.remove-cart-items {
+    fill: $black;
+    padding: 0 15px !important;
+
+    &>svg {
+        transform: rotate(90deg);
+    }
+
+    .alert {
+        top: 100%;
+        left: 50%;
+        right: auto;
+        width: max-content;
+        height: max-content;
+    }
+}
