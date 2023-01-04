@@ -120,7 +120,7 @@ function Payment() {
                                 <label htmlFor='policy' className='text-gray me-2'>پرداخت امن به وسیله کلیه کارت های عضو شتاب از طریق درگاه بانک ملت</label>
                             </div>
                             {errors?.policy && <span className='text-danger text-12 d-block'>قوانین را بپذیرید</span>}
-                            <a className={`btn ${isValid ? 'btn-primary' : 'btn-disabled'} w-50 mt-4 py-3 mx-5`}
+                            <a className={`btn btn-primary ${isValid ? 'btn-primary' : 'btn-disabled'} w-50 mt-4 py-3 mx-5`}
                                 disabled={!isValid} onClick={handleSubmit(onSubmit)}
                             >تکمیل سفارش</a>
                         </Receipt>
