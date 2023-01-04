@@ -179,3 +179,7 @@ input:-webkit-autofill:active {
         border-color: #{$primary}90;
     }
 }
+
+div[class*='col-'] {
+    padding: 0 1.2rem;
+}
