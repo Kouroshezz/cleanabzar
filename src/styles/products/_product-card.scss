@@ -45,7 +45,7 @@
 
     img {
         width: 150px;
-        height: 150px;
+        height: 90px;
         object-fit: contain;
     }
 }
@@ -163,4 +163,25 @@
 
 .slick-slide.slick-current .single {
     border-color: $primary !important;
+}
+
+.shop {
+    @include media-breakpoint-down('sm') {
+        .ProductCard {
+            padding-bottom: 0 !important;
+        }
+
+        figure {
+            width: 40%;
+        }
+
+        img {
+            height: auto;
+            max-width: 100% !important;
+        }
+
+        .p-card-sm {
+            flex-direction: row !important;
+        }
+    }
 }
