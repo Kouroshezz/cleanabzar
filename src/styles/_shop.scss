@@ -1,11 +1,5 @@
 .shop {
     .sort {
-        .icon {
-            padding: 1.2rem;
-            border-radius: .4rem;
-            background-color: #{$primary}15;
-        }
-
         .opt {
             cursor: pointer;
             color: #8D8D8D;
@@ -15,6 +9,12 @@
             color: #4D4D4D;
         }
 
+    }
+
+    .icon {
+        padding: 1.2rem;
+        border-radius: .4rem;
+        background-color: #{$primary}15;
     }
 
     .filter {
@@ -140,8 +140,26 @@
 }
 
 // -------
-#react-select-3-listbox {
+
+div[id*='react-select-'] {
     z-index: 999;
-    position: absolute;
+    // position: absolute;
     background-color: $white !important;
+}
+
+.sort-filter {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    transition: all .4s;
+    box-shadow: 0px 0px 30px rgb(114 114 114 / 50%) !important;
+}
+
+// --- active filter | sort
+.activeFS {
+    color: $primary;
+    border-radius: .2rem;
+    background-color: #{$primary}10;
 }
