@@ -12,6 +12,16 @@ import { NextArrow, PrevArrow } from '../shared/carousel-arrows';
 
 function ProductCarousel({ title, subtitle, products, category, banner }) {
 
+    useEffect(() => {
+        if (window.matchMedia('(max-width: 600px)')) {
+
+            // console.log(document.querySelector('.product_carousel .slick-track').lastChild)
+            // let cloneLast = document.querySelector('.product_carousel .slick-track').lastChild.cloneNode(true);
+            //  document.querySelector('.product_carousel .slick-track').appendChild(cloneLast)
+            // console.log(products.length)
+        }
+    }, [])
+
     return (
         <div className="container py-4">
             <div className="row">
@@ -20,7 +30,7 @@ function ProductCarousel({ title, subtitle, products, category, banner }) {
                     <Link to={`/shop/${category}`}>مشاهده همه</Link>
                 </div>
                 <div className='row product_carousel align-items-center'>
-                    <div className='col-5 col-md-3'>
+                    <div className='col-5 col-md-3 d-none d-lg-block'>
                         {Object.keys(products[0].offer).length > 0 ?
                             <>
                                 <h3 className='text-center'>فروش فوق العاده</h3>
@@ -39,11 +49,11 @@ function ProductCarousel({ title, subtitle, products, category, banner }) {
                             </>}
 
                     </div>
-                    <div className='col-7 col-md-9'>
+                    <div className='col-12 col-md-9 px-0'>
                         {/* <a className='d-none d-lg-block text-start'>مشاهده همه</a> */}
                         <Slider {...productCarousel}
                             centerMode={true} centerPadding='20px'
-                            rtl={true}
+                            rtl={false}
                             nextArrow={<NextArrow />} prevArrow={<PrevArrow />}
                             className='py-2'>
                             {products.map((item, index) =>
