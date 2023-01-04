@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import InnerImageZoom from 'react-inner-image-zoom';
 // ----
-import Modal from '../../Modal';
 import { NextArrow, PrevArrow } from '../../shared/carousel-arrows';
 
 function ProductGallery() {
