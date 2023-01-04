@@ -1,3 +1,4 @@
+import { TickCircle } from 'iconsax-react';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cartItems } from '../../Pages/Cart';
@@ -9,10 +10,10 @@ function Receipt({ children }) {
 
 
     return (
-        <div className=' text-center box receipt px-4 px-lg-0 pb-5'>
+        <div className=' text-center box receipt px-lg-0 pb-5'>
 
             <p className="text-center py-4 mb-3 mb-lg-5 title-bg ">فاکتور</p>
-            <div className="row align-items-center">
+            <div className="row align-items-center px-4">
                 <div className="d-flex justify-content-between align-items-baseline d-lg-block text-lg-center">
                     <p className='text-center'>قیمت کل محصولات ({cartItems.length})</p>
                     <div className='text-center'>
@@ -32,7 +33,7 @@ function Receipt({ children }) {
             {/* --- seprator --- */}
             <div className="seprator d-none d-lg-block my-4"></div>
             {/* -------coupon section in cart page */}
-            {location === 'cart' && <div className="d-flex justify-content-between align-items-baseline d-lg-block text-lg-center">
+            {location === 'cart' && <><div className="d-flex justify-content-between align-items-baseline d-lg-block text-lg-cente px-4">
                 <p className="text-center mt-5 mt-lg-0">کد تخفیف</p>
                 <form className='form-discount'>
                     <div className='d-flex justify-content-center'>
@@ -40,14 +41,27 @@ function Receipt({ children }) {
                         <button type="submit icon p-3">اعمال</button>
                     </div>
                 </form>
-            </div>}
+            </div>
+                {/* -------- */}
+                <div className="coupon-success p-4 mx-4">
+                    <span class='text-success'><TickCircle size="16" />کد تخفیف اعمال شد</span>
+                </div>
+                <small className='d-block text-danger text-start mx-4'>لغو کد تخفیف</small>
+                <div className="text-center">
+                    <span className='text-14 text-success'>{Number(245000).toLocaleString()}</span>
+                    <span className='text-10 text-gray mx-1'> تومان </span>
+                    <span className='text-12'>از مبلغ نهایی شما کسر شد</span>
+                </div>
+            </>}
             {/* --- seprator --- */}
             <div className="seprator my-4"></div>
             {/* -- */}
-            <p className="text-center">قیمت کل</p>
-            <div className='text-center'>
-                <h2 className='d-inline-block my-4 text-primary'>{Number(38542000).toLocaleString()}</h2>
-                <span className='text-14 text-gray mx-2'>تومان</span>
+            <div className="d-flex flex-lg-column justify-content-between align-items-center px-4">
+                <p className="text-center">قیمت کل</p>
+                <div className='text-center'>
+                    <h2 className='d-inline-block my-4 text-primary'>{Number(38542000).toLocaleString()}</h2>
+                    <span className='text-14 text-gray mx-2'>تومان</span>
+                </div>
             </div>
             {location === 'cart' && <Link to={`/payment`} className="btn btn-primary d-flex justify-content-center py-3 mx-5">پرداخت</Link>}
             {/* ------- payment page --------- */}
