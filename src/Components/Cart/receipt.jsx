@@ -44,7 +44,7 @@ function Receipt({ children }) {
             </div>
                 {/* -------- */}
                 <div className="coupon-success p-4 mx-4">
-                    <span class='text-success'><TickCircle size="16" />کد تخفیف اعمال شد</span>
+                    <span className='text-success'><TickCircle size="16" />کد تخفیف اعمال شد</span>
                 </div>
                 <small className='d-block text-danger text-start mx-4'>لغو کد تخفیف</small>
                 <div className="text-center">
