@@ -22,9 +22,9 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
     }
 
     return (
-        <div className='ProductCard bg-white py-4 px-3 rounded-4' id={id}>
+        <div className='ProductCard position-relative bg-white py-4 px-3 rounded-4' id={id}>
 
-            <div className='d-flex align-items-center justify-content-between' dir='ltr'>
+            <div className='d-flex align-items-center justify-content-between fav-icon' dir='ltr'>
                 <a onClick={() => addToFavorite(id)}>
                     {/* <Heart variant={`${favourite && 'Bold'}`} className='text-danger' /> */}
                     {fav || favourite ? <Heart variant='Bold' className='text-danger animate__animated animate__heartBeat' /> :
@@ -38,8 +38,8 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
                         <img src={`${image}`} className='img-fluid d-inline' />
                     </Link>
                 </figure>
-                <div>
-                    <h5 className='text-center mb-0 mt-3 text-12'><Link to={`/shop/product/${id}`}>{name}</Link></h5>
+                <div className='d-flex flex-column justify-content-evenly d-md-block'>
+                    <h5 className='text-center mb-0 text-12'><Link to={`/shop/product/${id}`}>{name}</Link></h5>
                     {offer.stat ?
                         // ------- product with offer
                         <>
