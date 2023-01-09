@@ -47,10 +47,6 @@ export function whiteShade(color) {
             mycc.push(cc[i])
         }
     }
-    if (mycc.every(item => item == 'f')) {
-        return true
-    }
-    else {
-        return false
-    }
+    return mycc.every(item => item == 'f')
 }
+// ===============================================================
