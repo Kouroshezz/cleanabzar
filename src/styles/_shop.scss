@@ -60,6 +60,52 @@
         //     transition: all .4s ease-in;
         // }
     }
+
+    // ---- filter dropdown 
+    .filter-dd {
+        height: 0;
+        position: relative;
+        overflow-y: hidden;
+        transition: all .5s;
+
+        &:focus {
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        &.showopt {
+            height: 200px;
+            overflow-y: scroll;
+        }
+    }
+
+    input[type=checkbox] {
+        accent-color: $primary;
+    }
+}
+
+.opt-title {
+
+    span,
+    svg {
+        pointer-events: none;
+    }
+
+    &.active {
+        color: $primary;
+        background-color: #{$primary}08;
+    }
+
+    border-bottom: 1px solid #{$text-gray}10;
+}
+
+.filter-colors {
+    span:nth-child(2) {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: inline-block;
+    }
 }
 
 // -----------
@@ -153,6 +199,7 @@ div[id*='react-select-'] {
     width: 100%;
     z-index: 9999;
     position: fixed;
+    overflow-y: auto;
     transition: all .4s;
     box-shadow: 0px 0px 30px rgb(114 114 114 / 50%) !important;
 }
