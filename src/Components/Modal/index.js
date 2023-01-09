@@ -16,7 +16,7 @@ function Modal(props) {
 
     return (
         <>
-            <div className={`${styles.wrapper}`} onClick={() => close()}> </div>
+            <div className={`${styles.wrapper}  animate__animated animate__fadeIn animate__faster`} onClick={() => close()}> </div>
             <div className={`${styles.content} animate__animated animate__fadeIn animate__faster`}>
                 <div className="d-flex align-items-center justify-content-between border-b pb-3 mb-4">
                     <div>
