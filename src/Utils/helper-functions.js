@@ -36,3 +36,21 @@ export function checkNC(meli_code) {
     }
 }
 // ================================================================
+
+// -------- check if Hex color code is white or is in white shade
+export function whiteShade(color) {
+    let mycc = [];
+    let cc = color;
+    cc = cc.substring(1, cc.length).split('');
+    for (let i = 0; i < cc.length; i++) {
+        if (i % 2 === 0) {
+            mycc.push(cc[i])
+        }
+    }
+    if (mycc.every(item => item == 'f')) {
+        return true
+    }
+    else {
+        return false
+    }
+}
