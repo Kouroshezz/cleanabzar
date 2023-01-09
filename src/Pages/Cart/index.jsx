@@ -2,10 +2,13 @@ import React, { useLayoutEffect, useState, useRef } from 'react';
 //---- icons
 import { Add, Minus, More, Trash, Xrp } from 'iconsax-react';
 //---- components
+import Modal from '../../Components/Modal';
 import Layout from '../../Components/Layout';
 import Steps from '../../Components/Cart/steps';
 import Receipt from '../../Components/Cart/receipt';
-import Modal from '../../Components/Modal';
+// ---- library
+import { v4 as uuidv4 } from 'uuid';
+
 function Cart() {
 
     const deleteCartRef = useRef(null);
@@ -48,7 +51,6 @@ function Cart() {
         alertBox.add('animate__fadeOutDown', 'invisible');
     }
 
-
     return (
         <>
             <div className='cart container mt-150 animate__animated animate__fadeIn'>
@@ -78,7 +80,7 @@ function Cart() {
                                 <tr className='d-flex w-100 align-items-center'>
                                     <th className='flex-shrink-1'>#</th>
                                     {tableHeader.map((item, index) =>
-                                        <th key={index} className='p-4'>{item}</th>
+                                        <th key={uuidv4()} className='p-4'>{item}</th>
                                     )}
                                     <th className='px-3 text-dark remove-cart-items position-relative' onClick={deleteCart}> <More size="16" />
                                         <div className='box alert position-absolute p-4 animate__animated d-none' ref={deleteCartRef} onClick={closeModal}>
@@ -89,7 +91,7 @@ function Cart() {
                             </thead>
                             <tbody className='d-block'>
                                 {cartItems.map((item, index) =>
-                                    <tr key={index} className='d-flex align-items-center px-4 my-2'>
+                                    <tr key={uuidv4()} className='d-flex align-items-center px-4 my-2'>
                                         <td className='flex-shrink-1 p-4'>{index + 1}</td>
                                         <td className='p-4 d-flex align-items-center title'>
                                             <img className='img-fluid' src={`${item.image}`} />
@@ -123,7 +125,7 @@ function Cart() {
                             </div>
 
                             {cartItems.map((item, index) =>
-                                <MobileCartItems item={item} key={Math.floor(Math.random() * 100)} />
+                                <MobileCartItems item={item} key={uuidv4()} />
                             )}
                         </div>
                     </div>
