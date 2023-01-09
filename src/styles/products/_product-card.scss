@@ -48,6 +48,15 @@
         height: 90px;
         object-fit: contain;
     }
+
+    .fav-icon {
+        top: 1rem;
+        left: 1.2rem;
+
+        @include media-breakpoint-down('sm') {
+            position: absolute;
+        }
+    }
 }
 
 // ----------------------------PRODUCT CAROUSEL
@@ -182,6 +191,12 @@
 
         .p-card-sm {
             flex-direction: row !important;
+        }
+
+        .ProductCard .btn {
+            padding: 5px 10px !important;
+            width: max-content !important;
+            display: inline-block !important;
         }
     }
 }
