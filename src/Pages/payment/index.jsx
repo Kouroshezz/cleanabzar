@@ -3,12 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react'
 //------ library
 import { useForm } from 'react-hook-form';
 //------ components
-import { checkNC, persianLetterPattern } from '../../Utils/helper-functions';
+import { checkNC, persianLetterPattern, userAddressPAttern } from '../../Utils/helper-functions';
 import Receipt from '../../Components/Cart/receipt';
 import Steps from '../../Components/Cart/steps';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../../Components/Layout';
 
 function Payment() {
+
+    const navigate = useNavigate();
 
     const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({
         mode: 'onChange',
@@ -16,7 +19,8 @@ function Payment() {
 
     const onSubmit = data => {
         !isValid && data.preventDefault();
-        console.table(data)
+        console.table(data);
+        navigate('/payment/success')
     };
 
     return (
@@ -54,7 +58,7 @@ function Payment() {
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>شماره موبایل<sup className='text-danger'>*</sup></label>
                                         <input type='number' className={`d-block w-100 ${errors.mobile && 'border-danger'}`} placeholder='09121234567'
-                                            {...register("mobile", { required: true, pattern: /^[09]{2}\d{9}$/, minLength: 11, maxLength: 11 })} />
+                                            {...register("mobile", { required: true, pattern: /^[0]{1}[9]{1}\d{9}$/, minLength: 11, maxLength: 11 })} />
                                         {errors.mobile?.type === 'required' && <span className='text-12 text-danger'>فیلد تلفن همراه  ضروریست</span>}
                                         {errors.mobile?.type === "pattern" && <span className='text-12 text-danger'> تلفن همراه با 09 آغاز میشود</span>}
                                         {errors.mobile?.type === "minLength" || errors.mobile?.type === "maxLength" && <span className='text-12 text-danger'> تلفن همراه 11 رقمی میباشد</span>}
@@ -98,7 +102,7 @@ function Payment() {
                                     {/* -- ADDRESS -- */}
                                     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                         <label htmlFor="name" className='mb-2 d-inline-flex align-items-center'>آدرس<sup className='text-danger'>*</sup></label>
-                                        <textarea {...register('Address', { required: true, minLength: 20, maxLength: 250, pattern: persianLetterPattern })}
+                                        <textarea {...register('Address', { required: true, minLength: 20, maxLength: 250, pattern: userAddressPAttern })}
                                             className={`d-block w-100 ${errors?.Address && 'border-danger'}`} placeholder='استان ، شهر ،‌خیابان ، کوچه ، پلاک ، واحد' rows={5} />
                                         {errors?.Address?.type === 'required' && <span className='text-12 text-danger'>آدرس خود را وارد نمایید</span>}
                                         {errors?.Address?.type === 'pattern' && <span className='text-12 text-danger'>لطفا از حروف فارسی استفاده نمایید</span>}
