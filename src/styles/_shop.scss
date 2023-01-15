@@ -79,6 +79,10 @@
         }
     }
 
+    label {
+        cursor: pointer;
+    }
+
     input[type=checkbox] {
         accent-color: $primary;
     }
@@ -96,6 +100,8 @@
         background-color: #{$primary}08;
     }
 
+    cursor: pointer;
+    padding:1rem 1.6rem !important;
     border-bottom: 1px solid #{$text-gray}10;
 }
 
