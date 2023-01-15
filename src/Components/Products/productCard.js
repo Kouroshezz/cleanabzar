@@ -52,12 +52,12 @@ function ProductCard({ name, price, image, id, offer, favourite }) {
                                 <span className='text-14 mx-2'>تومان</span><strong>{Number(offer.price).toLocaleString()}</strong></span>
                         </>
                         // -------- ordinary product
-                        : <span className="d-block text-center mb-3 d-flex justify-content-center align-items-center" dir='ltr'>
+                        : <span className="d-block text-center mb-3 d-flex justify-content-center align-items-center align-self-start" dir='ltr'>
                             <span className='text-14 mx-2'>تومان</span>
-                            <strong>{Number(price).toLocaleString()}</strong> </span>}
+                            <strong>{Number(price).toLocaleString()}</strong></span>}
                     <a className="btn btn-secondary w-100 align-items-center px-1 py-lg-3" dir='ltr' onClick={() => addToCart(id)}>
                         <span className='me-2'>افزودن به سبد خرید</span>
-                        <ShoppingCart width={15} height={15} />
+                        <ShoppingCart size={20} />
                     </a>
                 </div>
             </div>
