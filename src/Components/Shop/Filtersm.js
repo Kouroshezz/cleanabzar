@@ -15,10 +15,10 @@ function FilterMobile() {
             {Array(5).fill(null).map(item =>
                 <Dropdown key={uuidv4()} title={'برند'} >
                     {Array(10).fill(null).map((item, index) =>
-                        <div className='my-3 text-gray py-2' key={uuidv4()}>
+                        <li className='d-flex align-items-center my-3 text-gray py-2' key={uuidv4()}>
                             <input className='align-middle' type="checkbox" name={`brand-option-${index + 1}`} id={`option-${index + 1}`} value={`option-${index + 1}`} />
-                            <label className='me-3' htmlFor={`option-${index + 1}`}>برند اول</label>
-                        </div>
+                            <label className='me-3 w-100' htmlFor={`option-${index + 1}`}>برند اول</label>
+                        </li>
                     )}
                 </Dropdown>
             )}
@@ -31,7 +31,7 @@ function FilterMobile() {
                         <input type="checkbox" className='ms-3' id={`${title + index}`} value={title} name={title} />
                         <label className='flex-grow-1 d-inline-flex' htmlFor={`${title + index}`}>
                             <span>{title}</span>
-                            <span class='me-auto' style={{ backgroundColor: `${ccode}`, border: `${whiteShade(ccode) && '1px solid #404040'}` }}></span>
+                            <span className='me-auto' style={{ backgroundColor: `${ccode}`, border: `${whiteShade(ccode) && '1px solid #404040'}` }}></span>
                         </label>
                     </li>
                 )}
@@ -43,7 +43,5 @@ function FilterMobile() {
 export default React.memo(FilterMobile)
 
 
-export const colorFilters = [{ title: 'مشکی', ccode: '#101010' }, { title: 'سفید', ccode: '#f7f7f7' }, { title: 'سبز', ccode: '#00FF00' }, { title: 'آبی', ccode: '#0000FF' }]
+export const colorFilters = [{ title: 'مشکی', ccode: '#101010' }, { title: 'سفید', ccode: '#f3f3f3' }, { title: 'سبز', ccode: '#00FF00' }, { title: 'آبی', ccode: '#0000FF' }]
 
-
-// --- write a function that detects white color shades inorder to create a brder box for white backgroud color
