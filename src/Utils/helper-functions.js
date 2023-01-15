@@ -1,5 +1,6 @@
 // =========  Farsi Characters unicode
 export const persianLetterPattern = /^[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC_ -]+$/;
+export const userAddressPAttern = /^[\d\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC \_\-\n]+$/;
 // ========== check national code function ============ 
 export function checkNC(meli_code) {
     if (meli_code.length == 10) {
@@ -38,10 +39,9 @@ export function checkNC(meli_code) {
 // ================================================================
 
 // -------- check if Hex color code is white or is in white shade
-export function whiteShade(color) {
+export function whiteShade(cc) {
     let mycc = [];
-    let cc = color;
-    cc = cc.substring(1, cc.length).split('');
+    cc = cc.substring(1, cc.length).split(''); // remove the # from hex code and make an array of the rest (a-z0-9)
     for (let i = 0; i < cc.length; i++) {
         if (i % 2 === 0) {
             mycc.push(cc[i])
