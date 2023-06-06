@@ -121,7 +121,7 @@
 
         @include media-breakpoint-down(sm) {
             right: -3rem;
-            bottom: -35px;
+            bottom: -40px;
             font-size: 5rem;
         }
     }
@@ -129,16 +129,16 @@
     // ------------------
     .slick-slider {
         .slick-arrow {
-            top: 98%;
+            top: 102%;
         }
 
         .slick-next {
-            right: -17% !important;
+            right: -15% !important;
             left: auto !important;
         }
 
         .slick-prev {
-            right: -22% !important;
+            right: -21% !important;
         }
 
         .slick-next,
@@ -153,12 +153,15 @@
 
         @include media-breakpoint-down(sm) {
             .slick {
+                &-{
+                    top: 98%;
+                }
                 &-next {
-                    right: -10% !important;
+                    right: 40% !important;
                 }
 
                 &-prev {
-                    right: -40% !important;
+                    right: 25% !important;
                 }
             }
         }

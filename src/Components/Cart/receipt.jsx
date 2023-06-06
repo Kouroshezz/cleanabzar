@@ -43,7 +43,7 @@ function Receipt({ children }) {
                 </form>
             </div>
                 {/* -------- */}
-                <div className="coupon-success p-4 mx-4">
+                {/* <div className="coupon-success p-4 mx-4">
                     <span className='text-success'><TickCircle size="16" />کد تخفیف اعمال شد</span>
                 </div>
                 <small className='d-block text-danger text-start mx-4'>لغو کد تخفیف</small>
@@ -51,7 +51,7 @@ function Receipt({ children }) {
                     <span className='text-14 text-success'>{Number(245000).toLocaleString()}</span>
                     <span className='text-10 text-gray mx-1'> تومان </span>
                     <span className='text-12'>از مبلغ نهایی شما کسر شد</span>
-                </div>
+                </div> */}
             </>}
             {/* --- seprator --- */}
             <div className="seprator my-4"></div>
