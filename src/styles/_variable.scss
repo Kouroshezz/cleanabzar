@@ -17,6 +17,10 @@ $section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
     color: $text-gray;
 }
 
+.border-primary {
+    border-color: $primary !important;
+}
+
 .content-box {
     border-radius: $border-radius;
     box-shadow: $section-boxShadow;
@@ -29,7 +33,7 @@ $section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
 }
 
 .text-primary {
-    color: $primary  !important
+    color: $primary !important
 }
 
 .text-success {
@@ -56,14 +60,17 @@ $section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
 //-------- Buttons ----
 .btn {
     font-size: 1.4rem;
-    color: $white  !important;
-    background-color: $primary  !important;
     border: 1px solid transparent !important;
 
     &:hover {
-        color: $white  !important;
+        color: $white !important;
         backdrop-filter: saturate(80%);
         box-shadow: 0 5px 15px #{$primary}30;
+    }
+
+    &-primary {
+        color: $white !important;
+        background-color: $primary !important;
     }
 
     @include media-breakpoint-down(sm) {
@@ -83,13 +90,13 @@ $section-boxShadow : 0px 0px 30px rgba(114, 114, 114, 0.1);
     display: inline-flex;
     padding: .8rem 1.6rem;
     justify-content: center;
-    color: $primary  !important;
-    border: 1px solid $primary  !important;
+    color: $primary !important;
+    border: 1px solid $primary !important;
     background-color: transparent !important;
 
     &:hover {
-        color: $white  !important;
-        background-color: $primary  !important;
+        color: $white !important;
+        background-color: $primary !important;
         box-shadow: 0 5px 15px #{$primary}20 !important;
     }
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import InnerImageZoom from 'react-inner-image-zoom';
 // ----
-import Modal from '../../Modal';
+import { NextArrow, PrevArrow } from '../../shared/carousel-arrows';
 
 function ProductGallery() {
 
@@ -13,42 +13,24 @@ function ProductGallery() {
     // ------- Lightbox
     const [lightbox, setLightbox] = useState('');
 
-    const imgHeight = 416;
     const imgWidth = 376;
-    const lensHeight = 100;
     const lensWidth = 100;
+    const imgHeight = 416;
+    const lensHeight = 100;
     const previewLensHeight = 600;
 
     return (
         <div className="product-gallery p-2 p-lg-4">
-            {/* -- lightbox -- */}
-            {lightbox &&
-                <>
-                    <Modal close={() => setLightbox('')}  >
-                        <div className="d-flex justify-content-center" >
-                            <InnerImageZoom width='70%' height='100%' className='text-center'
-                                zoomScale={1.5} src={`${lightbox}`} zoomSrc={`${lightbox}`} />
-                        </div>
-                    </Modal>
-                </>}
-
             {/* ------------- */}
-            <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/2464056-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/112943678-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/2464056-removebg-preview 1.png' />
-                </figure>
-                <figure onClick={(e) => setLightbox(e.target.currentSrc)}>
-                    <img className='img-fluid p-4 p-lg-5' src='../../../images/products/112943678-removebg-preview 1.png' />
-                </figure>
+            <Slider {...productGallery} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}
+                nextArrow={<NextArrow />} prevArrow={<PrevArrow />} dots={true} className='productImages-master'>
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/2464056-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
+                <InnerImageZoom width={300} height={300} className='text-center' zoomScale={1.5} src='../../../images/products/112943678-removebg-preview 1.png' zoomSrc={`${lightbox}`} />
             </Slider>
-            <Slider asNavFor={nav1} ref={(slider2) => setNav2(slider2)} className='thumbnails' slidesToShow={4}
-                swipeToSlide={true} focusOnSelect={true} infinite={false} >
+            <Slider asNavFor={nav1} focusOnSelect={true} ref={(slider2) => setNav2(slider2)} className='mt-5 thumbnails' slidesToShow={4}
+                swipeToSlide={true} infinite={false} arrows={true}>
                 <div className='d-inline-flex justify-content-center single'>
                     <img className='img-fluid' src='../../../images/products/2464056-removebg-preview 1.png' />
                 </div>
@@ -63,10 +45,32 @@ function ProductGallery() {
                 </div>
             </Slider>
             <div className="d-flex justify-content-between thumbnails">
+
             </div>
             {/* ------------ */}
-        </div>
+        </div >
     )
 }
 
 export default React.memo(ProductGallery)
+
+
+
+const productGallery = {
+    responsive: [
+        {
+            breakpoint: 900,
+            settings: {
+                arrows: true,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: true,
+                NextArrow: <NextArrow />,
+                PrevArrow: <PrevArrow />
+            }
+        }
+    ]
+}

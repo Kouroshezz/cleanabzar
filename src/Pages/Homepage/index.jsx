@@ -11,9 +11,10 @@ import BannerHomepage from './banner';
 import Layout from '../../Components/Layout';
 import BlogCard from '../../Components/Blog/itemcard';
 import ReviewCard from '../../Components/Reviews/review-card';
+import SectionsTitle from '../../Components/shared/sections-title';
 import CategoryBanner from '../../Components/Products/categoryBanner';
 import ProductCarousel from '../../Components/Products/productCarousel';
-import SectionsTitle from '../../Components/shared/sections-title';
+import { NextArrowhp, PrevArrowhp } from '../../Components/shared/Homeslider-arrows';
 
 
 function Homepage() {
@@ -37,7 +38,8 @@ function Homepage() {
                 <div className="row gap-y-5">
                     <div className="col-12 col-md-8 landing">
                         {/* ----------- SLIDER --------- */}
-                        <Slider {...settings} className='rounded-3 align-items-stretch'>
+                        <Slider {...settings} prevArrow={<PrevArrowhp />} nextArrow={<NextArrowhp />}
+                            className='rounded-3 align-items-stretch'>
                             <img src='../../images/banner/Frame 39.png' />
                             <img src='../../images/banner/Frame 39.png' />
                         </Slider>
@@ -78,25 +80,21 @@ function Homepage() {
                 </div>
             </div>
 
-            <div className='container-fluid mt-5 pt-3'>
-                <div className="" style={{ backgroundColor: '#ffeae3' }}>
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
-                        category={'vacum'} products={products} banner='../../../images/products/tstst.png' />
-                </div>
+            <div className='container-fluid mt-5 pt-3' style={{ backgroundColor: '#ffeae3' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
+                    category={'vacum'} products={products} banner='../../../images/products/tstst.png' />
             </div>
             {/* ------- PRODUCT CATEGORY BANNER -------- */}
             <div className='container my-5 py-2'>
                 <div className='row'>
-                    <CategoryBanner bgcolor={'#FA6917'} title='تجهیزات رفاهی' ad={['خوشبو کننده هوا', 'دستگاه واکس زن برقی', 'سشوار و دست خشک کن']} image='../../../images/products/Group-17382.png' />
-
+                    <CategoryBanner bgcolor={'#FA6917'} title='تجهیزات رفاهی' ad={['خوشبو کننده هوا', 'دستگاه واکس زن برقی', 'سشوار و دست خشک کن']}
+                        image='../../../images/products/Group-17382.png' />
                 </div>
             </div>
             {/* ------- PRODUCT CAROUSEL -------- */}
-            <div className='container-fluid my-5 py-3'>
-                <div className="" style={{ backgroundColor: '#D0F3FF' }}>
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی ' products={products}
-                        banner='../../../images/products/tstst.png' />
-                </div>
+            <div className='container-fluid my-5 pt-3' style={{ backgroundColor: '#D0F3FF' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی ' products={products}
+                    banner='../../../images/products/tstst.png' />
             </div>
             {/* ------- PRODUCT CATEGORY BANNER -------- */}
             <div className='container my-5'>
@@ -106,12 +104,9 @@ function Homepage() {
                 </div>
             </div>
             {/* ------- PRODUCT CAROUSEL -------- */}
-            <div className='container-fluid my-5 py-3'>
-                {/*  style={{ backgroundColor: '#D0F3FF' }} */}
-                <div className="" style={{ backgroundColor: '#D0F3FF' }} >
-                    <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
-                        products={spProducts.specialOffer} />
-                </div>
+            <div className='container-fluid my-5 pt-3' style={{ backgroundColor: '#D0F3FF' }}>
+                <ProductCarousel title='کارواش خانگی ' subtitle='انواع کارواش خانگی ، نیمه صنعنی و الکتریکی '
+                    products={spProducts.specialOffer} />
             </div>
             {/* --------------BANNERS----------- */}
             <div className="container my-5 pt-5">
@@ -145,30 +140,20 @@ function Homepage() {
                     <div className="row">
                         <div className="brands">
                             <Slider {...brandsSliderSetting} className='py-5' direction='left'>
-                                <div><img src='../../../images/brands/lg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Samsung Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
-                                <div><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/lg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Samsung Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Kenwood svg.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Sony Electronics.png' className='img-fluid' /></div>
+                                <div className='px-3'><img src='../../../images/brands/Marshalls.png' className='img-fluid' /></div>
                             </Slider>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="my-5 pt-5"></div>
-            {/* ------- REVIEW SECTION --------- */}
-            <div className="container">
-
-                <SectionsTitle link={''} titleDark='آخرین نظرات' titlePrimary='کاربران' />
-                <div className="row">
-                    <div className="col-12 col-lg-4">
-                        <ReviewCard />
-                    </div>
-                </div>
-            </div>
             {/* --------- NEWSLETTER --------- */}
             <section className='container my-5 pt-5'>
                 <div className='row'>
@@ -204,3 +189,5 @@ function Homepage() {
 }
 
 export default React.memo(Homepage)
+
+

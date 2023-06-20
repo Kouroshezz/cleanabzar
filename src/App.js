@@ -1,27 +1,15 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import ContextWrapper from './Context/index';
-
+import { memo } from 'react';
 import './App.scss';
-
-// ------ Component
+// ------ Routes Component
 import AbzarRoutes from './Utils/Router/routes';
-import MobileDevice from './Context/index';
 
 function App() {
 
-  const [checkMobile, setCheckMobile] = useState(false)
-
-  useEffect(() => {
-    window.innerWidth < 600 ? setCheckMobile(true) : setCheckMobile(false)
-  }, [checkMobile])
-
   return (
     <div className="App">
-      <MobileDevice.Provider value={checkMobile}>
-        <AbzarRoutes />
-      </MobileDevice.Provider>
+      <AbzarRoutes />
     </div>
   );
 }
 
-export default App;
+export default memo(App);

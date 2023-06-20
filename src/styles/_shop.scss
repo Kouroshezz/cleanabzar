@@ -1,11 +1,5 @@
 .shop {
     .sort {
-        .icon {
-            padding: 1.2rem;
-            border-radius: .4rem;
-            background-color: #{$primary}15;
-        }
-
         .opt {
             cursor: pointer;
             color: #8D8D8D;
@@ -15,6 +9,12 @@
             color: #4D4D4D;
         }
 
+    }
+
+    .icon {
+        padding: 1.2rem;
+        border-radius: .4rem;
+        background-color: #{$primary}15;
     }
 
     .filter {
@@ -35,6 +35,82 @@
             top: 90px;
             position: sticky;
         }
+
+        .dropdown {
+            height: 50px;
+            overflow: hidden;
+            transition: all .3s ease-in;
+        }
+
+        .dropdown.open {
+            height: 200px;
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+
+        // .options {
+        //     height: 0;
+        //     overflow: hidden;
+        // }
+
+        // .options.open {
+        //     height: 200px;
+        //     max-height: 200px;
+        //     overflow-y: scroll;
+        //     transition: all .4s ease-in;
+        // }
+    }
+
+    // ---- filter dropdown 
+    .filter-dd {
+        height: 0;
+        position: relative;
+        overflow-y: hidden;
+        transition: all .5s;
+
+        &:focus {
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        &.showopt {
+            height: 200px;
+            overflow-y: scroll;
+        }
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    input[type=checkbox] {
+        accent-color: $primary;
+    }
+}
+
+.opt-title {
+
+    span,
+    svg {
+        pointer-events: none;
+    }
+
+    &.active {
+        color: $primary;
+        background-color: #{$primary}08;
+    }
+
+    cursor: pointer;
+    padding:1rem 1.6rem !important;
+    border-bottom: 1px solid #{$text-gray}10;
+}
+
+.filter-colors {
+    span:nth-child(2) {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: inline-block;
     }
 }
 
@@ -75,7 +151,7 @@
 
         a {
             padding: 1rem 1.5rem;
-            color: $white  !important;
+            color: $white !important;
             background-color: $primary;
         }
     }
@@ -88,4 +164,55 @@
             border-color: #{$primary}90;
         }
     }
+}
+
+// -------- FILTER
+.noUi-target {
+    height: 10px !important;
+}
+
+.noUi-connect {
+    background: $primary !important;
+}
+
+.noUi-handle {
+    width: 20px !important;
+    height: 20px !important;
+    cursor: e-resize !important;
+    border-radius: 50% !important;
+
+    &:after,
+    &:before {
+        display: none !important;
+    }
+}
+
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+    left: -10px !important;
+}
+
+// -------
+
+div[id*='react-select-'] {
+    z-index: 999;
+    // position: absolute;
+    background-color: $white !important;
+}
+
+.sort-filter {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    overflow-y: auto;
+    transition: all .4s;
+    box-shadow: 0px 0px 30px rgb(114 114 114 / 50%) !important;
+}
+
+// --- active filter | sort
+.activeFS {
+    color: $primary;
+    border-radius: .2rem;
+    background-color: #{$primary}10;
 }

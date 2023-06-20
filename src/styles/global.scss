@@ -23,21 +23,10 @@
     src: url('../Assets/fonts/iranyekanwebregularfanum.woff') format('woff');
 }
 
-@font-face {
-    font-family: 'icomoon';
-    src: url('../Assets/fonts/icomoon.eot');
-    src: url('../Assets/fonts/icomoon.ttf') format("truetype");
-}
-
-.icon-logo_shape-f:before {
-    color: #fff;
-    content: "\e906";
-    font-family: 'icomoon';
-}
-
 
 html {
     font-size: 10px;
+    scroll-padding-top: 30px;
     // @include media-breakpoint-down(sm) {
     //     overflow-x: hidden;
     //     max-width: 99.99vw;
@@ -53,6 +42,17 @@ body {
     @include media-breakpoint-down(sm) {
         overflow-x: hidden;
         max-width: 99.99vw;
+    }
+}
+
+
+@include media-breakpoint-up(lg) {
+    html {
+        scroll-padding-top: 130px;
+    }
+
+    .product_carousel .slick-initialized {
+        direction: rtl !important;
     }
 }
 
@@ -91,13 +91,13 @@ a {
         }
     }
 
-    .slick-prev {
-        right: 2rem !important;
-    }
+    // .slick-prev {
+    //     right: 2rem !important;
+    // }
 
-    .slick-next {
-        left: 2rem !important;
-    }
+    // .slick-next {
+    //     left: 2rem !important;
+    // }
 }
 
 // ------------- Comments
@@ -128,11 +128,73 @@ a {
 @include media-breakpoint-up(lg) {
 
     .slick-list .ProductCard {
-        margin: 0 1.5rem
+        margin: 0 .6rem
     }
 }
 
 .iiz>div {
     display: flex;
     justify-content: center;
+}
+
+.Arrow-carousel {
+    box-shadow: 0px 4px 10px rgba(1, 136, 149, 0.2);
+}
+
+.slick-arrow.slick-disabled {
+    filter: grayscale(100%);
+    opacity: .6;
+}
+
+// .product_carousel .slick-initialized {
+//     direction: rtl !important;
+// }
+
+.slick-arrow:before {
+    display: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: $white;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+// ----------- QUANTITY BUTTONS STYLE -----------
+.quantity-btn {
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    color: #{$black}90;
+    padding: .2rem .5rem;
+    border:1px solid #{$primary}60;
+
+    @include media-breakpoint-up(lg) {
+        padding: .4rem .8rem;
+    }
+
+    &:hover {
+        border-color: #{$primary}90;
+    }
+}
+
+div[class*='col-'] {
+    padding: 0 1.2rem;
+}
+
+
+.showopt::-webkit-scrollbar {
+    width: 4px;
+}
+
+.showopt::-webkit-scrollbar-track {
+    background-color: #{$primary}10;
+}
+
+.showopt::-webkit-scrollbar-thumb {
+
+    background-color: $primary;
+    box-shadow: inset 0 0 6px #10101020;
 }

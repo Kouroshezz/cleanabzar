@@ -13,9 +13,22 @@
 
         .color {
             width: 1.6rem;
-            display: block;
             height: 1.6rem;
+            display: block;
+            cursor: pointer;
             border-radius: 50%;
+        }
+
+        .color.selected {
+            padding: 2px;
+            width: 1.9rem;
+            height: 1.9rem;
+            background-clip: content-box;
+            border: 2px solid $primary !important;
+        }
+
+        .border-b {
+            border-color: #DEDEDE;
         }
     }
 
@@ -58,7 +71,8 @@
 
     .thumbnails {
         .single {
-            margin: 0 1.5rem;
+            cursor: pointer;
+            margin: 0 .8rem;
             border-radius: .8rem;
             width: 8rem !important;
             //height: 8rem !important;
@@ -84,7 +98,7 @@
 
     // ------------
     .action-box {
-        top: 90px;
+        // top: 90px;
         z-index: 3;
         position: sticky;
         border-radius: 1rem;
@@ -94,7 +108,7 @@
 
         p {
             padding: 1rem 0;
-            border-bottom: 1px solid #{$text-gray}30;
+            border-bottom: 1px solid #{$text-gray}15;
         }
 
         * {
@@ -171,6 +185,10 @@
     .category-title * {
         font-size: 2.4rem !important;
 
+        @include media-breakpoint-down(sm) {
+            font-size: 2rem !important;
+        }
+
     }
 
     //----------- DES & Attributes
@@ -217,7 +235,7 @@
     }
 
     .active-spec {
-        color: $primary  !important;
+        color: $primary !important;
         border-bottom: 4px solid $primary;
     }
 
@@ -238,9 +256,23 @@
     }
 
     .slick-track {
-        &>div {
-            align-items: center;
-            display: inline-flex;
+        &>div figure {
+            width: 100% !important;
+        }
+    }
+}
+
+// -----
+.productImages-master {
+    .slick-arrow {
+        z-index: 999;
+    }
+
+    .slick-prev {
+        right: 0 !important;
+
+        @include media-breakpoint-down(sm) {
+            right: -15px !important;
         }
     }
 }
@@ -255,7 +287,7 @@
     position: fixed;
     padding: 1rem 1.5rem;
     z-index: 999;
-    background-color: $white  !important;
+    background-color: $white !important;
     border-top: 1px solid #{$text-gray}30;
 
     a {

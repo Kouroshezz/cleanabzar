@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Setting5 } from 'iconsax-react';
+import { Setting5, Sort } from 'iconsax-react';
 import Select from 'react-select';
 import { useSearchParams } from 'react-router-dom';
 
-function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
+function SortProducts({ sort, setSort, filterFunc, sortsm }) {
 
     const [search] = useSearchParams();
     let sortQuery = search.get('sort');
@@ -30,13 +30,11 @@ function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
                 return item.classList.remove('text-primary')
             }
         });
-
-
     }, [sortQuery])
 
     return (
         <>
-            <div className="sort d-none d-lg-flex align-items-center justify-content-center my-5 pb-4">
+            <div className="sort d-none d-lg-flex align-items-center justify-content-center my-5 pt-5">
                 <span className='icon ms-4'>
                     <Setting5 className='text-primary' />
                 </span>
@@ -50,17 +48,25 @@ function SortProducts({ sort, setSelectedOption, selectedOption, setSort }) {
                 </div>
             </div>
             {/* ------------SORT OPTIONS IN MOBILE------ */}
-            <div className="sort d-flex d-md-none align-items-center mt-5">
-                <span className='icon ms-2'>
-                    <Setting5 className='text-primary' />
-                </span>
-                <span>مرتب سازی : </span>
-                <Select className='flex-grow-1 me-3'
+            <div className="sort d-flex d-md-none align-items-center ">
+                <div className="box py-4 px-3 w-50 mx-2" onClick={() => filterFunc('filter')}>
+                    <span className='icon ms-2'>
+                        <Setting5 className='text-primary' />
+                    </span>
+                    <span> فیلتر </span>
+                </div>
+                <div className="box py-4 px-3 w-50 mx-2" onClick={() => filterFunc('sort')}>
+                    <span className='icon ms-2'>
+                        <Sort className='text-primary' />
+                    </span>
+                    <span> {sortsm} </span>
+                </div>
+                {/* <Select className='flex-grow-1 me-3'
                     placeholder={'انتخاب کنید'}
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
+                    defaultValue={sort}
+                    onChange={(e) => setSort(e.data)}
                     options={sortOptions}
-                />
+                /> */}
             </div>
             {/* ------------SORT OPTIONS IN MOBILE------ */}
         </>

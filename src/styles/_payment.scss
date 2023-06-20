@@ -26,4 +26,8 @@
             background-color: #{$success}20;
         }
     }
+
+    textarea {
+        resize: none;
+    }
 }
